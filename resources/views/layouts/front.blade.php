@@ -24,8 +24,7 @@
 
 <body>
 
-
-
+@yield('content')
 
 </body>
 <script src="{{ asset("js/external/live.js") }}" ></script>

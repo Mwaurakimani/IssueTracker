@@ -1,0 +1,78 @@
+nav{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    .nav-elem-search{
+        margin-left: 10px;
+        grid-column: 2/9;
+        height: 100%;
+        form{
+            input{
+                width: 400px;
+                margin-top: 3px;
+                margin-left: 5px;
+                border-radius: 5px;
+            }
+            button{
+                margin-top: 3px;
+                margin-left: 5px;
+                background-color: #aeaeae;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+        }
+    }
+    .account-management-nav{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .account-logo{
+            width: 40px;
+            height: 40px;
+            background-color: #BCEBE4;
+            border-radius: 5px;
+            position: relative;
+            p{
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                font-size: 1.6em;
+                text-align: center;
+                line-height: 40px;
+                font-weight: 600;
+                color: #404040;
+            }
+            .account-action{
+                display: none;
+                margin-top: 2px;
+                left: -160px;
+                position: absolute;
+                width: 200px;
+                box-shadow: 0 0 6px grey;
+                background-color: white;
+                border-radius: 5px;
+                overflow: hidden;
+                button{
+                    width: 100%;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: left;
+                    padding-left: 10px;
+                }
+                a{
+                    display: flex;
+                    padding-left: 10px;
+                    width: 100%;
+                    height: 30px;
+                    line-height: 30px;
+                }
+                &>*:hover{
+                    background-color: #75787e;
+                    color: white;
+                }
+            }
+        }
+    }
+}

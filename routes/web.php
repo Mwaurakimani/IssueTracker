@@ -14,15 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('App.Front.Home');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/Dashboard', function () {
+    return view('App.Back.dashboard');
+})->middleware(['auth'])->name('Dashboard');
+
+
+Route::get('/Dashboard', function () {
+    return view('App.Back.dashboard');
+})->middleware(['auth'])->name('Dashboard');
+
+
+
+
+
+require 'adminPanel.php';
 
 require __DIR__.'/auth.php';
+
+require __DIR__.'/resources.php';

@@ -1,0 +1,20 @@
+//config
+@import "config/config";
+//backend layouts
+@import "components/backEnd/layout";
+@import "components/backEnd/shared";
+@import "components/backEnd/navigation";
+
+//backend Partials
+@import "partials/Dashboard";
+@import "partials/Issues";
+@import "partials/Users";
+@import "partials/Solutions";
+@import "partials/Settings";
+
+//frontend Layouts
+@import "components/forntEnd/layout";
+
+//frontend Layouts
+@import "partials/Home";
+@import "partials/createIssue";

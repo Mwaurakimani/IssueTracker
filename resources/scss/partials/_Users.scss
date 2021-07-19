@@ -1,0 +1,45 @@
+.Users-view {
+    width: 100%;
+    height: 100%;
+
+    .Item-view-content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 78% 22%;
+
+        .dashboard-list-view-horizontal {
+            .ticket-list-item {
+                .info-content{
+                    width: calc(100% - 200px);
+                    height: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(5 ,1fr);
+                    .elem-holder{
+                        align-self: center;
+                        justify-self: center;
+                        font-size: 90%;
+                        & h6{
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .action-element{
+                    width: 120px;
+                    height: 100%;
+                    margin-left: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    .btn-action-holder{
+                        width: 35px;
+                        padding: 5px;
+                        height: 35px;
+                    }
+                }
+                &:hover {
+                    background-color: #eaeaea;
+                }
+            }
+        }
+    }
+}
