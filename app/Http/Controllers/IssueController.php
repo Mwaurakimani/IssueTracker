@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Issue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IssueController extends Controller
 {
@@ -14,7 +15,10 @@ class IssueController extends Controller
      */
     public function index()
     {
-        //
+        $issues = Issue::all();
+        return view('App.Back.issues')->with([
+            'issues'=>$issues
+        ]);
     }
 
     /**
@@ -44,14 +48,15 @@ class IssueController extends Controller
 
         $Issue->subject = $validated['Subject'];
         $Issue->description = $validated['Description'];
-        $Issue->priority_id = 2;
+        $Issue->user_id = Auth::user()->id;
         $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
+        $Issue->level_id = 1;
+        $Issue->status_id = 1;
+        $Issue->team_id = 1;
 
+        $Issue->save();
 
+        return view('/App.Front.Home');
     }
 
     /**
@@ -97,5 +102,28 @@ class IssueController extends Controller
     public function destroy(Issue $issue)
     {
         //
+    }
+
+    public function listMyIssues($id)
+    {
+        $issues = Issue::where('user_id',$id)->get();
+
+        return view("App.Front.listMyIssues")->with('issues',$issues);
+    }
+
+    public function sortIssue($id, $issue_id)
+    {
+        $issue = Issue::find($issue_id);
+
+        return view("App.Front.issueConversation")->with([
+            'issue'=>$issue
+        ]);
+    }
+
+
+    public function dashboardIssueOpen($id){
+        $issue = Issue::find($id);
+
+        return view('App.Back.issueFrom')->with('issue',$issue);
     }
 }

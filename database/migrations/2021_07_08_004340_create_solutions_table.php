@@ -18,7 +18,7 @@ class CreateSolutionsTable extends Migration
             $table->string("title");
             $table->longText("Description");
             $table->unsignedBigInteger("user");
-            $table->unsignedSmallInteger("issue");
+            $table->unsignedSmallInteger("issue_id")->nullable();
             $table->unsignedBigInteger("rating");
             $table->softDeletes();
             $table->timestamps();

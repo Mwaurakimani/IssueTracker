@@ -17,11 +17,11 @@ class CreateIssuesTable extends Migration
             $table->id();
             $table->string("subject");
             $table->string("description");
+            $table->bigInteger("user_id")->comment("The creator of this issue");
             $table->unsignedBigInteger("priority_id")->default('1');
+            $table->unsignedBigInteger("level_id")->default('1');
             $table->unsignedBigInteger("status_id")->default('1');
             $table->unsignedBigInteger("team_id")->default('1');
-            $table->unsignedBigInteger("group_id")->default('1');
-            $table->unsignedBigInteger("type_id")->default('1');
             $table->timestamps();
             $table->softDeletes();
         });

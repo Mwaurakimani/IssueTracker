@@ -1,0 +1,148 @@
+.issue-chat-holder{
+    padding-bottom: 50px;
+    .conversation-panel{
+        width: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 0 6px darkgrey;
+        .conversation-sect{
+            width: 70%;
+            background-color: white;
+            padding-top: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            &>.status{
+                width: 100%;
+                background-color: #eeaeae;
+                padding:10px ;
+                border-radius: 5px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+            &>.issue-data{
+                width: 100%;
+                height: 40px;
+                display: flex;
+                font-size: 1.3em;
+                font-weight: 500;
+                margin-bottom: 10px;
+                span{
+                    padding-left: 20px;
+                    margin-right: 10px;
+                }
+                p{
+
+                }
+            }
+            &>.description-sect{
+                padding: 20px;
+                color: grey;
+            }
+            .chat-section{
+                width: 100%;
+                padding-bottom: 20px;
+                .user-details{
+                    width: 100%;
+                    display: flex;
+                    padding-top: 20px;
+                    flex-direction: row;
+                    .initials{
+                        width: 70px;
+                        height: 70px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.8em;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                    }
+                    .chat-data{
+                        width: 300px;
+                        margin-bottom: 20px;
+                        &>p:nth-of-type(1){
+                            font-size: 1.3em;
+                            font-weight: 600;
+                            color: #545454;
+                        }
+                        &>p:nth-of-type(2){
+                            color: grey;
+                        }
+                    }
+                }
+                .text-body{
+                    padding: 10px;
+                    border: 1px solid #d2d2d2;
+                    border-radius: 5px;
+                }
+            }
+            .client{
+                .initials{
+                    background-color: #BCEBE4
+                }
+                .text-body{
+                    background-color: #F1FFF8;
+                }
+            }
+            .technician{
+                .initials{
+                    background-color: #EBBCBC
+                }
+                .text-body{
+                    background-color: #F5E8E8;
+                }
+            }
+            .entry-section{
+                width: 100%;
+                padding: 10px;
+                background-color: #F1FFF8;
+                display: flex;
+                flex-direction: column;
+                textarea{
+                    width: 100%;
+                    display: block;
+                    border-radius: 5px;
+                    margin: auto auto 10px;
+                }
+                input{
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                button{
+                    display: block;
+                    width: 80px;
+                    height: 40px;
+
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .status-sect{
+            width: 30%;
+            background-color: #eaeaea;
+            padding-top: 40px;
+            padding-left: 40px;
+            border: 1px solid #b3b3b3;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            h4{
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #646464;
+                padding-bottom: 20px;
+            }
+            h6{
+                font-size: 1.1em;
+                font-weight: bolder;
+                color: #5f5f5f;
+            }
+            p{
+                color: grey;
+            }
+        }
+    }
+}

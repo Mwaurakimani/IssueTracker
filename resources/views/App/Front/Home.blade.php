@@ -20,11 +20,12 @@
                     <img src="{{ asset('storage/Images/plus-icon.png') }}" alt="">
                     <span>New Support Ticket</span>
                 </a>
-                <a href="">
-
+                @auth()
+                <a href="/{{ Auth::user()->id }}/MyIssues">
                     <img src="{{ asset('storage/Images/plus-icon.png') }}" alt="">
                     <span>Check Ticket Status</span>
                 </a>
+                @endauth
             </div>
             <div class="main-list-panel">
                 <h4>Knowledge Base</h4>
