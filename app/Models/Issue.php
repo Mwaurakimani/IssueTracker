@@ -17,10 +17,6 @@ class Issue extends Model
 
     public $guarded = [];
 
-    public function User(){
-        return $this->belongsTo(User::class );
-    }
-
     public function Team(){
         return $this->belongsTo(Team::class );
     }
@@ -32,5 +28,11 @@ class Issue extends Model
     }
     public function Status(){
         return $this->belongsTo(Status::class );
+    }
+    public function Group(){
+        return $this->belongsTo(Group::class );
+    }
+    public function Type(){
+        return $this->belongsTo(Type::class );
     }
 }

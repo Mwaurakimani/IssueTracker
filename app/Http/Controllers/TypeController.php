@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Issue;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
-class IssueController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class IssueController extends Controller
      */
     public function create()
     {
-        return view('App.Front.createIssue');
+        //
     }
 
     /**
@@ -35,32 +35,16 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'Subject' => 'required',
-            'Description' => 'required|max:3000',
-        ]);
-
-        $Issue = new Issue();
-
-        $Issue->subject = $validated['Subject'];
-        $Issue->description = $validated['Description'];
-        $Issue->priority_id = 2;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-        $Issue->priority_id = 1;
-
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Issue $issue)
+    public function show(Type $type)
     {
         //
     }
@@ -68,10 +52,10 @@ class IssueController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Issue $issue)
+    public function edit(Type $type)
     {
         //
     }
@@ -80,10 +64,10 @@ class IssueController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Issue  $issue
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Issue $issue)
+    public function update(Request $request, Type $type)
     {
         //
     }
@@ -91,10 +75,10 @@ class IssueController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Issue $issue)
+    public function destroy(Type $type)
     {
         //
     }
