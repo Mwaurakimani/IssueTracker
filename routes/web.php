@@ -20,12 +20,13 @@ Route::get('/', function () {
 
 
 Route::get('/Dashboard', function () {
-    return view('App.Back.dashboard');
-})->middleware(['auth'])->name('Dashboard');
+    $title = Auth::user()->title;
 
-
-Route::get('/Dashboard', function () {
-    return view('App.Back.dashboard');
+    if($title == 'Admin'){
+        return view('App.Back.dashboard');
+    }else{
+        return redirect('/');
+    }
 })->middleware(['auth'])->name('Dashboard');
 
 Route::get('/{id}/MyIssues', [IssueController::class,'listMyIssues'])->middleware(['auth'])->name('MyIssues');
