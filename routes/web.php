@@ -19,13 +19,12 @@ Route::get('/', function () {
 
 
 Route::get('/Dashboard', function () {
-    $title = Auth::user()->title;
+    return view('App.Back.dashboard');
+})->middleware(['auth'])->name('Dashboard');
 
-    if($title == 'Admin'){
-        return view('App.Back.dashboard');
-    }else{
-        return redirect('/');
-    }
+
+Route::get('/Dashboard', function () {
+    return view('App.Back.dashboard');
 })->middleware(['auth'])->name('Dashboard');
 
 

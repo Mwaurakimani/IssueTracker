@@ -23,7 +23,7 @@ Route::resource('Group', GroupController::class);
 
 Route::resource('Type', TypeController::class);
 
-Route::resource('Issues', IssueController::class)->middleware(['auth']);
+Route::resource('Issues', IssueController::class);
 
 Route::resource('Solution', SolutionController::class);
 

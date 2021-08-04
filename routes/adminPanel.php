@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 
+
+Route::get('/Dashboard', function () {
+    return view('App.Back.dashboard');
+})->middleware(['auth'])->name('Dashboard');
+
 Route::get('/Issues', function () {
     return view('App.Back.issues');
 })->middleware(['auth'])->name('Issues');
