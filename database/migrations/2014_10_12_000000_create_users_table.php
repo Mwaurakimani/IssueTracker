@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string("title");
+            $table->string("title")->default('Client');
             $table->string("phone");
             $table->unsignedBigInteger("group_id");
             $table->unsignedBigInteger("role_id");
