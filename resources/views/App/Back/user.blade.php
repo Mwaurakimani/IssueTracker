@@ -26,31 +26,31 @@
             <div class="dashboard-list-view-horizontal">
                 <div class="issues-content-holder">
 
-                    @for($i = 0; $i < 10;$i++)
+                    @foreach($users as $user)
                         <a href="/Issues" class="ticket-list-item">
                             <div class="letter-logo">
-                                <p>P</p>
+                                <p>{{ $user->name[0] }}</p>
                             </div>
                             <div class="info-content">
                                 <div class="elem-holder" style="grid-column: 1/2">
                                     <h6>Name</h6>
-                                    <p>UserName</p>
+                                    <p>{{ $user->name }}</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 2/3">
                                     <h6>Title</h6>
-                                    <p>UserName</p>
+                                    <p>{{ $user->title }}</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 3/4">
                                     <h6>Email</h6>
-                                    <p>anclknaskcnlaknsclnasknclansk</p>
+                                    <p> {{ $user->email }}</p>
                                 </div>
-                                <div class="elem-holder"style="grid-column: 4/5">
+                                <div class="elem-holder"style="grid-column: 4/5" >
                                     <h6>Phone</h6>
-                                    <p>UserName</p>
+                                    <p>#</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 5/6">
                                     <h6>Department</h6>
-                                    <p>UserName</p>
+                                    <p>{{ $user->department }}</p>
                                 </div>
                             </div>
                             <div class="action-element">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </a>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
             <div class="dashboard-filter-view">

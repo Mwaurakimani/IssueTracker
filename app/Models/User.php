@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Message;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -45,5 +46,13 @@ class User extends Authenticatable
 
     public function Team(){
         return $this->belongsTo(Team::class);
+    }
+
+    public function Issue(){
+        return $this->hasMany(Issue::class);
+    }
+
+    public function Message(){
+        return $this->hasMany(Message::class);
     }
 }

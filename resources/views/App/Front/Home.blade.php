@@ -1,11 +1,11 @@
 @extends('layouts.front')
 
 @section('content')
-    <x-front-end-header>
-    </x-front-end-header>
+    <x-layout.front-end-header>
+    </x-layout.front-end-header>
 
-    <x-front-end-nav>
-    </x-front-end-nav>
+    <x-layout.front-end-nav>
+    </x-layout.front-end-nav>
 
     <div class="home-body">
         <div class="home-content-body">
@@ -20,7 +20,7 @@
                     <img src="{{ asset('storage/Images/plus-icon.png') }}" alt="">
                     <span>New Support Ticket</span>
                 </a>
-                <a href="">
+                <a href="/home/Issues">
 
                     <img src="{{ asset('storage/Images/plus-icon.png') }}" alt="">
                     <span>Check Ticket Status</span>

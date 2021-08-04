@@ -20,13 +20,13 @@
     </div>
     <div class="account-management-nav">
         <div class="account-logo">
-            <p id="account_action_control">P</p>
+            <p id="account_action_control"> {{ Auth::user()->name[0] }}</p>
             <div class="account-action">
                 <form action="/logout" method="POST">
                     @csrf
                     <button>Log Out</button>
                 </form>
-                <a href="">Account</a>
+                <a href="/">Home</a>
             </div>
         </div>
 
