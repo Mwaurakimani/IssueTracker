@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
-Route::get('/Issues', function () {
-    return view('App.Back.issues');
-})->middleware(['auth'])->name('Issues');
+use App\Models\User;
 
 Route::get('/Users', function () {
-    return view('App.Back.user');
+    $users = User::all();
+
+    return view('App.Back.user')->with([
+        'users'=> $users
+    ]);
 })->middleware(['auth'])->name('Users');
 
 Route::get('/Solutions', function () {

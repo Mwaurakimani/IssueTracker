@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\Message;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,11 @@ Route::get('/', function () {
     return view('App.Front.Home');
 });
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+});
+
 
 Route::get('/Dashboard', function () {
     $title = Auth::user()->title;
@@ -28,7 +35,51 @@ Route::get('/Dashboard', function () {
     }
 })->middleware(['auth'])->name('Dashboard');
 
+Route::post('/Issues/sendMessage', function (Request $request) {
+    $message_data = $request->message_entry;
+    $issue_id = $request->issue_id;
+
+    $message = new Message();
+    $message->issue_id = $issue_id;
+    $message->user_id = Auth::user()->id;
+    $message->message = $message_data;
+
+    $message->save();
+
+    return array(
+        'name' => Auth::user()->name,
+        'request' => $request->message_entry
+    );
+});
+
+Route::post('/Issues/sendMessage', function (Request $request) {
+    $message_data = $request->message_entry;
+    $issue_id = $request->issue_id;
+
+    $message = new Message();
+    $message->issue_id = $issue_id;
+    $message->user_id = Auth::user()->id;
+    $message->message = $message_data;
+
+    $message->save();
+
+    return array(
+        'name' => Auth::user()->name,
+        'request' => $request->message_entry
+    );
+});
+
 //test
+
+Route::get('/Issue/Delete/{id}',function($id){
+    $issue = \App\Models\Issue::find($id);
+
+    $issue->delete();
+
+    return redirect('/Issues');
+});
+
+
 
 
 
