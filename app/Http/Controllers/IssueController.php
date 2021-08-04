@@ -56,9 +56,7 @@ class IssueController extends Controller
 
         $Issue->subject = $validated['Subject'];
         $Issue->description = $validated['Description'];
-        $Issue->user_id = Auth::user()->id;
         $Issue->priority_id = 1;
-        $Issue->level_id = 1;
         $Issue->status_id = 1;
         $Issue->team_id = 1;
 
