@@ -39,4 +39,4 @@ require 'adminPanel.php';
 require __DIR__.'/auth.php';
 
 require __DIR__.'/resources.php';
->>>>>>> parent of 83c8238 (Include chat)
+
