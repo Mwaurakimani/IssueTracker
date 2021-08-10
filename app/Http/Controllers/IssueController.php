@@ -44,13 +44,12 @@ class IssueController extends Controller
 
         $Issue->subject = $validated['Subject'];
         $Issue->description = $validated['Description'];
-<<<<<<< HEAD
         $Issue->priority_id = 1;
         $Issue->status_id = 1;
         $Issue->team_id = 1;
 
         $Issue->save();
-=======
+
         $Issue->priority_id = 2;
         $Issue->priority_id = 1;
         $Issue->priority_id = 1;
