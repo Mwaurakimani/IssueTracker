@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string("title")->default('Client');
-            $table->string("phone")->default(0);
             $table->unsignedBigInteger("group_id")->default(1);
             $table->unsignedBigInteger("role_id")->default(1);
             $table->unsignedBigInteger("team_id")->nullable();
