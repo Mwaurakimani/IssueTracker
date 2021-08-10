@@ -28,6 +28,11 @@ Route::get('/Dashboard', function () {
     }
 })->middleware(['auth'])->name('Dashboard');
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->middleware(['auth'])->name('Dashboard');
+
 //test
 
 

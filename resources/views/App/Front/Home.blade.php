@@ -1,11 +1,11 @@
 @extends('layouts.front')
 
 @section('content')
-    <x-front-end-header>
-    </x-front-end-header>
+    <x-Layouts.front-end-header>
+    </x-Layouts.front-end-header>
 
-    <x-front-end-nav>
-    </x-front-end-nav>
+    <x-Layouts.front-end-nav>
+    </x-Layouts.front-end-nav>
 
     <div class="home-body">
         <div class="home-content-body">
