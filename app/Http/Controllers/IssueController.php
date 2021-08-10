@@ -56,7 +56,6 @@ class IssueController extends Controller
         $Issue->priority_id = 1;
         $Issue->priority_id = 1;
         $Issue->priority_id = 1;
->>>>>>> parent of 83c8238 (Include chat)
 
 
     }
