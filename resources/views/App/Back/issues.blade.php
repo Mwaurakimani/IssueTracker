@@ -11,51 +11,51 @@
                     </select>
                 </form>
             </div>
-{{--            <div class="paginator-1-component">--}}
-{{--                <p>1-11 of 200</p>--}}
-{{--                <div class="pagination-page-controller">--}}
-{{--                    <button class="Prev"> &#60;</button>--}}
-{{--                    <button class="Next"> &#62;</button>--}}
-{{--                </div>--}}
-{{--                <select class="form-control" name="sort_elements" id="sort_elements">--}}
-{{--                    <option>Page</option>--}}
-{{--                </select>--}}
-{{--            </div>--}}
+            <div class="paginator-1-component">
+                <p>1-11 of 200</p>
+                <div class="pagination-page-controller">
+                    <button class="Prev"> &#60;</button>
+                    <button class="Next"> &#62;</button>
+                </div>
+                <select class="form-control" name="sort_elements" id="sort_elements">
+                    <option>Page</option>
+                </select>
+            </div>
         </div>
         <div class="Item-view-content ">
             <div class="dashboard-list-view-horizontal">
                 <div class="issues-content-holder">
 
-                    @foreach($issues as $issue)
-                        <a href="/Issues/{{ $issue->id }}" class="ticket-list-item">
+                    @for($i = 0; $i < 10;$i++)
+                        <a href="/Issues" class="ticket-list-item">
                             <div class="letter-logo">
-                                <p>{{ $issue['user']->name[0] }}</p>
+                                <p>P</p>
                             </div>
                             <div class="display-details">
                                 <p class="new-badge-display">New</p>
-                                <p class="title">{{ $issue->subject }}</p>
+                                <p class="title">How do I replace my password</p>
                                 <div class="summary-details">
-                                    <span>{{ $issue['user']->name }}</span>
+                                    <span>Username</span>
                                     <span>.</span>
-                                    <span>{{ $issue->created_at->diffForHumans() }}</span>
+                                    <span>12 hours Ago</span>
                                 </div>
                             </div>
                             <div class="sub-details">
                                 <div class="content-group">
                                     <p>Priority</p>
-                                    <p style="color: orange">: {{ $issue['Priority']->name }}</p>
+                                    <p style="color: orange">: Low</p>
                                 </div>
                                 <div class="content-group">
                                     <p>Level</p>
-                                    <p style="color: green">: {{ $issue['Level']->name }}</p>
+                                    <p style="color: green">: Standard</p>
                                 </div>
                                 <div class="content-group">
                                     <p>Status</p>
-                                    <p style="color: grey">: {{ $issue['Status']->name }}</p>
+                                    <p style="color: grey">: Pending</p>
                                 </div>
                             </div>
                         </a>
-                    @endforeach
+                    @endfor
 
                 </div>
             </div>
@@ -69,34 +69,61 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Team Member</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="">All</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Priority</label>
+                            <label for="exampleFormControlSelect1">Group</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="">All</option>
-                                <option value="Low">Low</option>
-                                <option value="Medium">Medium</option>
-                                <option value="High">High</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Level</label>
+                            <label for="exampleFormControlSelect1">Team Member</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="">All</option>
-                                <option value="Low">Standard</option>
-                                <option value="Medium">Specialized</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Status</label>
+                            <label for="exampleFormControlSelect1">Group</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="">All</option>
-                                <option value="Low">Pending</option>
-                                <option value="Medium">Received</option>
-                                <option value="Medium">Solving</option>
-                                <option value="Medium">Solved</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Team Member</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Group</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
                     </div>

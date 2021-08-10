@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
-use App\Models\Message;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class IssueController extends Controller
 {
@@ -16,17 +14,7 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $issues = Issue::with('User')
-            ->with('Priority')
-            ->with('Level')
-            ->with('Status')
-            ->get();
-
-//        dd($issues);
-
-        return view('App.Back.issues')->with([
-            'issues' => $issues
-        ]);
+        //
     }
 
     /**
@@ -56,13 +44,21 @@ class IssueController extends Controller
 
         $Issue->subject = $validated['Subject'];
         $Issue->description = $validated['Description'];
+<<<<<<< HEAD
         $Issue->priority_id = 1;
         $Issue->status_id = 1;
         $Issue->team_id = 1;
 
         $Issue->save();
+=======
+        $Issue->priority_id = 2;
+        $Issue->priority_id = 1;
+        $Issue->priority_id = 1;
+        $Issue->priority_id = 1;
+        $Issue->priority_id = 1;
+        $Issue->priority_id = 1;
+>>>>>>> parent of 83c8238 (Include chat)
 
-        return redirect('/');
 
     }
 
@@ -72,16 +68,9 @@ class IssueController extends Controller
      * @param  \App\Models\Issue  $issue
      * @return \Illuminate\Http\Response
      */
-    public function show(Issue $issue,$id)
+    public function show(Issue $issue)
     {
-        $issue = Issue::find($id);
-
-        $messages = Message::where('issue_id',$issue->id)->orderBy('created_at','asc')->get();
-
-        return view('App.Back.Issue.issueForm')->with([
-            'issue'=> $issue,
-            'messages' => $messages
-        ]);
+        //
     }
 
     /**

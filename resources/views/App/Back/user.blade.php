@@ -26,31 +26,31 @@
             <div class="dashboard-list-view-horizontal">
                 <div class="issues-content-holder">
 
-                    @foreach($users as $user)
+                    @for($i = 0; $i < 10;$i++)
                         <a href="/Issues" class="ticket-list-item">
                             <div class="letter-logo">
-                                <p>{{ $user->name[0] }}</p>
+                                <p>P</p>
                             </div>
                             <div class="info-content">
                                 <div class="elem-holder" style="grid-column: 1/2">
                                     <h6>Name</h6>
-                                    <p>{{ $user->name }}</p>
+                                    <p>UserName</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 2/3">
                                     <h6>Title</h6>
-                                    <p>{{ $user->title }}</p>
+                                    <p>UserName</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 3/4">
                                     <h6>Email</h6>
-                                    <p> {{ $user->email }}</p>
+                                    <p>anclknaskcnlaknsclnasknclansk</p>
                                 </div>
-                                <div class="elem-holder"style="grid-column: 4/5" >
+                                <div class="elem-holder"style="grid-column: 4/5">
                                     <h6>Phone</h6>
-                                    <p>#</p>
+                                    <p>UserName</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 5/6">
                                     <h6>Department</h6>
-                                    <p>{{ $user->department }}</p>
+                                    <p>UserName</p>
                                 </div>
                             </div>
                             <div class="action-element">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </a>
-                    @endforeach
+                    @endfor
                 </div>
             </div>
             <div class="dashboard-filter-view">

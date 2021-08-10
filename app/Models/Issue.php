@@ -35,11 +35,4 @@ class Issue extends Model
     public function Type(){
         return $this->belongsTo(Type::class );
     }
-    public function User(){
-        return $this->belongsTo(User::class );
-    }
-    public function Message(){
-        return $this->hasMany(Message::class );
-    }
-
 }
