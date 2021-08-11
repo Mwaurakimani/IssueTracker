@@ -1,15 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
-
-Route::get('/Issues', function () {
-    return view('App.Back.issues');
-})->middleware(['auth'])->name('Issues');
-
-Route::get('/Users', function () {
-    return view('App.Back.user');
-})->middleware(['auth'])->name('Users');
+Route::resource('Users',UserController::class)->middleware(['auth']);
 
 Route::get('/Solutions', function () {
     return view('App.Back.solutions');

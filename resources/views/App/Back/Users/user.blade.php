@@ -11,58 +11,48 @@
                     </select>
                 </form>
             </div>
-            <div class="paginator-1-component">
-                <p>1-11 of 200</p>
-                <div class="pagination-page-controller">
-                    <button class="Prev"> &#60;</button>
-                    <button class="Next"> &#62;</button>
-                </div>
-                <select class="formm-control" name="sort_elements" id="sort_elements">
-                    <option>Page</option>
-                </select>
-            </div>
+{{--            <div class="paginator-1-component">--}}
+{{--                <p>1-11 of 200</p>--}}
+{{--                <div class="pagination-page-controller">--}}
+{{--                    <button class="Prev"> &#60;</button>--}}
+{{--                    <button class="Next"> &#62;</button>--}}
+{{--                </div>--}}
+{{--                <select class="formm-control" name="sort_elements" id="sort_elements">--}}
+{{--                    <option>Page</option>--}}
+{{--                </select>--}}
+{{--            </div>--}}
         </div>
         <div class="Item-view-content ">
             <div class="dashboard-list-view-horizontal">
                 <div class="issues-content-holder">
-
-                    @for($i = 0; $i < 10;$i++)
-                        <a href="/Issues" class="ticket-list-item">
+                    @forelse($users as $user)
+                        <a href="/Users/{{ $user->id }}" class="ticket-list-item">
                             <div class="letter-logo">
-                                <p>P</p>
+                                <p>{{ $user->name[0] }}</p>
                             </div>
                             <div class="info-content">
                                 <div class="elem-holder" style="grid-column: 1/2">
                                     <h6>Name</h6>
-                                    <p>UserName</p>
+                                    <p>{{ $user->name }}</p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 2/3">
                                     <h6>Title</h6>
-                                    <p>UserName</p>
+                                    <p> {{ $user->title }} </p>
                                 </div>
                                 <div class="elem-holder" style="grid-column: 3/4">
                                     <h6>Email</h6>
-                                    <p>anclknaskcnlaknsclnasknclansk</p>
-                                </div>
-                                <div class="elem-holder"style="grid-column: 4/5">
-                                    <h6>Phone</h6>
-                                    <p>UserName</p>
-                                </div>
-                                <div class="elem-holder" style="grid-column: 5/6">
-                                    <h6>Department</h6>
-                                    <p>UserName</p>
+                                    <p>{{ $user->email }}</p>
                                 </div>
                             </div>
                             <div class="action-element">
-                                <div class="btn-action-holder">
-                                    <img src="{{ asset("storage/Images/open.png") }}" alt="">
-                                </div>
                                 <div class="btn-action-holder">
                                     <img src="{{ asset("storage/Images/trash.png") }}" alt="">
                                 </div>
                             </div>
                         </a>
-                    @endfor
+                    @empty
+                        <p>No users Found</p>
+                    @endforelse
                 </div>
             </div>
             <div class="dashboard-filter-view">

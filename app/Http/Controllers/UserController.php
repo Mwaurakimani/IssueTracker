@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Issue;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class IssueController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,10 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $Issues = Issue::all();
+        $users = User::all();
 
-        return view('App.Back.issues')->with([
-            'Issues' => $Issues
+        return view('App.Back.Users.user')->with([
+            'users' => $users
         ]);
     }
 
@@ -29,7 +28,7 @@ class IssueController extends Controller
      */
     public function create()
     {
-        return view('App.Front.createIssue');
+        //
     }
 
     /**
@@ -40,40 +39,31 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'Subject' => 'required',
-            'Description' => 'required|max:3000',
-        ]);
-
-        $Issue = new Issue();
-
-
-        $Issue->subject = $validated['Subject'];
-        $Issue->description = $validated['Description'];
-        $Issue->user_id = Auth::user()->id;
-        $Issue->save();
-
-        return redirect('/');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Issue $issue)
+    public function show($id)
     {
+        $user = User::find($id);
 
+        return view('App.Back.Users.user-Form')->with([
+            'user' => $user
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Issue $issue)
+    public function edit($id)
     {
         //
     }
@@ -82,10 +72,10 @@ class IssueController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Issue  $issue
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Issue $issue)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -93,10 +83,10 @@ class IssueController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Issue $issue)
+    public function destroy($id)
     {
         //
     }

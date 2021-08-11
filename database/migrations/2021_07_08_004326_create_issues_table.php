@@ -19,8 +19,8 @@ class CreateIssuesTable extends Migration
             $table->string("description");
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("priority_id")->default('1');
+            $table->unsignedBigInteger("level_id")->default('1');
             $table->unsignedBigInteger("status_id")->default('1');
-            $table->unsignedBigInteger("type_id")->default('1');
             $table->timestamps();
             $table->softDeletes();
         });

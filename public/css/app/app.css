@@ -593,7 +593,7 @@ nav .account-management-nav .account-logo .account-action > *:hover {
   width: calc(100% - 200px);
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .Users-view .Item-view-content .dashboard-list-view-horizontal .ticket-list-item .info-content .elem-holder {
   align-self: center;
@@ -618,6 +618,105 @@ nav .account-management-nav .account-logo .account-action > *:hover {
 }
 .Users-view .Item-view-content .dashboard-list-view-horizontal .ticket-list-item:hover {
   background-color: #eaeaea;
+}
+.Users-view .Item-view-content .user-content-holder {
+  width: 96%;
+  margin: auto;
+  margin-top: 20px;
+  height: 400px;
+  grid-column: 1/span 2;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 6px grey;
+  border-radius: 8px;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel {
+  width: 70%;
+  height: 100%;
+  display: flex;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-img {
+  width: 30%;
+  padding-top: 20px;
+  height: 100%;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-img .icon-holder {
+  width: 200px;
+  height: 200px;
+  background-color: #BCEBE4;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-img .icon-holder p {
+  font-size: 8em;
+  font-weight: bold;
+  text-align: center;
+  font-family: sans-serif;
+  color: #5b5b5b;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-details {
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .form-group {
+  display: flex;
+  margin-bottom: 20px;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .form-group label {
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .form-group input {
+  width: 300px;
+  border-radius: 5px;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .button-display {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding-right: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .button-display button {
+  height: 34px;
+  width: 150px;
+  background-color: #37eab8;
+  color: white;
+  font-weight: bolder;
+}
+.Users-view .Item-view-content .user-content-holder .sub-panel {
+  width: 30%;
+  height: 100%;
+  background-color: #d6d6d6;
+  padding: 10px;
+  border-left: 1px solid #aeaeae;
+}
+.Users-view .Item-view-content .user-content-holder .sub-panel h4 {
+  font-size: 1.3em;
+  color: #606060;
+  font-weight: bolder;
+}
+.Users-view .Item-view-content .user-content-holder .sub-panel .form-group label {
+  display: block;
+}
+.Users-view .Item-view-content .user-content-holder .sub-panel .form-group input {
+  width: 250px;
+}
+.Users-view .Item-view-content .user-content-holder .sub-panel button {
+  margin-top: 20px;
+  width: 200px;
+  height: 34px;
+  background-color: #474747;
+  color: white;
+}
+.Users-view .Item-view-content .user-content-holder .sub-panel button:hover {
+  background-color: #949494;
 }
 
 body, html {
