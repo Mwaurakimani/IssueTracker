@@ -5,7 +5,7 @@
     display: flex;
     overflow: auto;
     .field-elemental{
-        width: 30%;
+        width: 340px;
         height: 100%;
         border-right: 1px solid grey;
         display: flex;
@@ -45,8 +45,7 @@
         }
     }
     .body-elemental{
-        width: 70%;
+        width: calc(100% - 340px);
         height: 100%;
-        background-color: green;
     }
 }

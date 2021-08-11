@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="z-index: 800">
     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
         <h3
             style="height: 50px;
@@ -20,13 +20,14 @@
     </div>
     <div class="account-management-nav">
         <div class="account-logo">
-            <p id="account_action_control">P</p>
+            <p id="account_action_control">{{ Auth::user()->name[0] }}</p>
             <div class="account-action">
                 <form action="/logout" method="POST">
                     @csrf
                     <button>Log Out</button>
                 </form>
-                <a href="">Account</a>
+                <a href="/Account">Account</a>
+                <a href="/">Home</a>
             </div>
         </div>
 

@@ -2,8 +2,8 @@
 
 <ul class="side_panel_holder">
     @foreach($routes_array as $route)
-        <x-side-bar-action :routes="$route">
+        <x-Layouts.side-bar-action :routes="$route">
 
-        </x-side-bar-action>
+        </x-Layouts.side-bar-action>
     @endforeach
 </ul>

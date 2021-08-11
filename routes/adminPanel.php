@@ -20,7 +20,12 @@ Route::get('/Reports', function () {
 })->middleware(['auth'])->name('Reports');
 
 Route::get('/Settings', function () {
-    return view('App.Back.settings');
+    $levels = \App\Models\Level::all();
+
+
+    return view('App.Back.settings')->with([
+        'levels'=> $levels
+    ]);
 })->middleware(['auth'])->name('Settings');
 
 

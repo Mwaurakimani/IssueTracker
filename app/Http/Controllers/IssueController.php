@@ -14,7 +14,11 @@ class IssueController extends Controller
      */
     public function index()
     {
-        //
+        $Issues = Issue::all();
+
+        return view('App.Back.issues')->with([
+            'Issues' => $Issues
+        ]);
     }
 
     /**
@@ -68,7 +72,7 @@ class IssueController extends Controller
      */
     public function show(Issue $issue)
     {
-        //
+
     }
 
     /**

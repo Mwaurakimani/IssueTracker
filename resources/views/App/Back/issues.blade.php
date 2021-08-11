@@ -11,25 +11,25 @@
                     </select>
                 </form>
             </div>
-            <div class="paginator-1-component">
-                <p>1-11 of 200</p>
-                <div class="pagination-page-controller">
-                    <button class="Prev"> &#60;</button>
-                    <button class="Next"> &#62;</button>
-                </div>
-                <select class="form-control" name="sort_elements" id="sort_elements">
-                    <option>Page</option>
-                </select>
-            </div>
+{{--            <div class="paginator-1-component">--}}
+{{--                <p>1-11 of 200</p>--}}
+{{--                <div class="pagination-page-controller">--}}
+{{--                    <button class="Prev"> &#60;</button>--}}
+{{--                    <button class="Next"> &#62;</button>--}}
+{{--                </div>--}}
+{{--                <select class="form-control" name="sort_elements" id="sort_elements">--}}
+{{--                    <option>Page</option>--}}
+{{--                </select>--}}
+{{--            </div>--}}
         </div>
         <div class="Item-view-content ">
             <div class="dashboard-list-view-horizontal">
-                <div class="issues-content-holder">
 
-                    @for($i = 0; $i < 10;$i++)
+                <div class="issues-content-holder">
+                    @forelse($Issues as $issue)
                         <a href="/Issues" class="ticket-list-item">
                             <div class="letter-logo">
-                                <p>P</p>
+                                <p>{{ $issue->User }}</p>
                             </div>
                             <div class="display-details">
                                 <p class="new-badge-display">New</p>
@@ -55,9 +55,12 @@
                                 </div>
                             </div>
                         </a>
-                    @endfor
+                    @empty
+                        <p>No Issues Found</p>
+                    @endforelse
 
                 </div>
+
             </div>
             <div class="dashboard-filter-view">
                 <form action="">

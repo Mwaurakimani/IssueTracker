@@ -9,6 +9,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\SettingsRouterController;
 
 
 Route::resource('Team', TeamController::class);
@@ -26,6 +27,12 @@ Route::resource('Type', TypeController::class);
 Route::resource('Issues', IssueController::class)->middleware(['auth']);
 
 Route::resource('Solution', SolutionController::class);
+
+Route::resource('Level', LevelController::class);
+
+Route::post('/settings/View', [SettingsRouterController::class,'loadView']);
+
+
 
 
 

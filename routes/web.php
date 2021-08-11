@@ -23,7 +23,10 @@ Route::get('/Dashboard', function () {
 
     if($title == 'Admin'){
         return view('App.Back.dashboard');
-    }else{
+    }elseif ($title == 'Technician'){
+        return view('App.Back.dashboard');
+    }
+    else{
         return redirect('/');
     }
 })->middleware(['auth'])->name('Dashboard');
@@ -34,6 +37,16 @@ Route::get('/logout', function () {
 })->middleware(['auth'])->name('Dashboard');
 
 //test
+
+
+//ajax requests
+Route::post('getItem',[\App\Http\Controllers\SettingsRouterController::class,'getItem']);
+
+Route::post('updateItem',[\App\Http\Controllers\SettingsRouterController::class,'updateItem']);
+
+Route::delete('/deleteItem',[\App\Http\Controllers\SettingsRouterController::class,'destroy']);
+
+Route::post('createItem',[\App\Http\Controllers\SettingsRouterController::class,'createItem']);
 
 
 
