@@ -15,10 +15,16 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $Issues = Issue::all();
+        $issues = Issue::with('User')
+            ->with('Priority')
+            ->with('Level')
+            ->with('Status')
+            ->get();
+
+//        dd($issues);
 
         return view('App.Back.issues')->with([
-            'Issues' => $Issues
+            'issues' => $issues
         ]);
     }
 
@@ -62,9 +68,16 @@ class IssueController extends Controller
      * @param  \App\Models\Issue  $issue
      * @return \Illuminate\Http\Response
      */
-    public function show(Issue $issue)
+    public function show(Issue $issue,$id)
     {
+        $issue = Issue::find($id);
 
+        $messages = Message::where('issue_id',$issue->id)->orderBy('created_at','asc')->get();
+
+        return view('App.Back.Issue.issueForm')->with([
+            'issue'=> $issue,
+            'messages' => $messages
+        ]);
     }
 
     /**

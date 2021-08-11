@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\Message;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('App.Front.Home');
+});
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
 });
 
 
@@ -66,6 +73,25 @@ Route::post('/Issues/sendMessage', function (Request $request) {
     );
 });
 
+Route::post('/Issues/sendMessage', function (Request $request) {
+    $message_data = $request->message_entry;
+    $issue_id = $request->issue_id;
+
+    $message = new Message();
+    $message->issue_id = $issue_id;
+    $message->user_id = Auth::user()->id;
+    $message->message = $message_data;
+
+    $message->save();
+
+    return array(
+        'name' => Auth::user()->name,
+        'request' => $request->message_entry
+    );
+});
+
+//test
+
 Route::get('/Issue/Delete/{id}',function($id){
     $issue = \App\Models\Issue::find($id);
 
@@ -76,9 +102,10 @@ Route::get('/Issue/Delete/{id}',function($id){
 
 
 
+
+
 require 'adminPanel.php';
 
 require __DIR__.'/auth.php';
 
 require __DIR__.'/resources.php';
-

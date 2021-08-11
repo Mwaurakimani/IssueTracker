@@ -11,6 +11,7 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\SettingsRouterController;
 use App\Models\Issue;
+use App\Models\Message;
 
 
 Route::resource('Team', TeamController::class);
@@ -54,5 +55,6 @@ Route::get('/home/Issues/{id}', function ($id) {
         'messages' => $messages
     ]);
 });
+
 
 

@@ -21,6 +21,7 @@
                     <span>New Support Ticket</span>
                 </a>
                 <a href="/home/Issues">
+
                     <img src="{{ asset('storage/Images/plus-icon.png') }}" alt="">
                     <span>Check Ticket Status</span>
                 </a>

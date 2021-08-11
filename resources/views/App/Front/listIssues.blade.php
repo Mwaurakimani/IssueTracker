@@ -31,7 +31,7 @@
                             <p>{{ $issue->created_at->diffForHumans() }}</p>
                         </div>
                         <div class="sect-3">
-{{--                            <p> {{ dd($issue['Status']->name) }}</p>--}}
+                            <p> {{ $issue['Status']->name }}</p>
                         </div>
                     </div>
                 @endforeach

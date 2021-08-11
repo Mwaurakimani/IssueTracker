@@ -26,32 +26,33 @@
             <div class="dashboard-list-view-horizontal">
 
                 <div class="issues-content-holder">
-                    @forelse($Issues as $issue)
-                        <a href="/Issues" class="ticket-list-item">
+
+                    @foreach($issues as $issue)
+                        <a href="/Issues/{{ $issue->id }}" class="ticket-list-item">
                             <div class="letter-logo">
-                                <p>{{ $issue->User }}</p>
+                                <p>{{ $issue['user']->name[0] }}</p>
                             </div>
                             <div class="display-details">
                                 <p class="new-badge-display">New</p>
-                                <p class="title">How do I replace my password</p>
+                                <p class="title">{{ $issue->subject }}</p>
                                 <div class="summary-details">
-                                    <span>Username</span>
+                                    <span>{{ $issue['user']->name }}</span>
                                     <span>.</span>
-                                    <span>12 hours Ago</span>
+                                    <span>{{ $issue->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
                             <div class="sub-details">
                                 <div class="content-group">
                                     <p>Priority</p>
-                                    <p style="color: orange">: Low</p>
+                                    <p style="color: orange">: {{ $issue['Priority']->name }}</p>
                                 </div>
                                 <div class="content-group">
                                     <p>Level</p>
-                                    <p style="color: green">: Standard</p>
+                                    <p style="color: green">: {{ $issue['Level']->name }}</p>
                                 </div>
                                 <div class="content-group">
                                     <p>Status</p>
-                                    <p style="color: grey">: Pending</p>
+                                    <p style="color: grey">: {{ $issue['Status']->name }}</p>
                                 </div>
                             </div>
                         </a>
