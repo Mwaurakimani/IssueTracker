@@ -49,6 +49,32 @@ Route::delete('/deleteItem',[\App\Http\Controllers\SettingsRouterController::cla
 Route::post('createItem',[\App\Http\Controllers\SettingsRouterController::class,'createItem']);
 
 
+Route::post('/Issues/sendMessage', function (Request $request) {
+    $message_data = $request->message_entry;
+    $issue_id = $request->issue_id;
+
+    $message = new Message();
+    $message->issue_id = $issue_id;
+    $message->user_id = Auth::user()->id;
+    $message->message = $message_data;
+
+    $message->save();
+
+    return array(
+        'name' => Auth::user()->name,
+        'request' => $request->message_entry
+    );
+});
+
+Route::get('/Issue/Delete/{id}',function($id){
+    $issue = \App\Models\Issue::find($id);
+
+    $issue->delete();
+
+    return redirect('/Issues');
+});
+
+
 
 require 'adminPanel.php';
 

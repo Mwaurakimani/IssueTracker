@@ -10,6 +10,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\SettingsRouterController;
+use App\Models\Issue;
 
 
 Route::resource('Team', TeamController::class);
@@ -33,6 +34,25 @@ Route::resource('Level', LevelController::class);
 Route::post('/settings/View', [SettingsRouterController::class,'loadView']);
 
 
+//home
 
+Route::get('/home/Issues', function () {
+    $issues = Issue::where('user_id',Auth::user()->id)->with('Status')->get();
+
+    return view('App.Front.listIssues')->with([
+        'issues' => $issues
+    ]);
+});
+
+Route::get('/home/Issues/{id}', function ($id) {
+    $issue = Issue::where('id',$id)->with('Status')->get();
+    $messages = Message::where('issue_id',$issue[0]->id)->get();
+
+
+    return view('App.Front.homeIssue')->with([
+        'issue' => $issue[0],
+        'messages' => $messages
+    ]);
+});
 
 
