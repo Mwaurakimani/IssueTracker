@@ -12,27 +12,28 @@ use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\SettingsRouterController;
 use App\Models\Issue;
 use App\Models\Message;
+use Illuminate\Http\Request;
 
 
-Route::resource('Team', TeamController::class);
+Route::resource('Team', TeamController::class)->middleware(['auth']);;
 
-Route::resource('Priority', PriorityController::class);
+Route::resource('Priority', PriorityController::class)->middleware(['auth']);
 
-Route::resource('Level', LevelController::class);
+Route::resource('Level', LevelController::class)->middleware(['auth']);
 
-Route::resource('Status', StatusController::class);
+Route::resource('Status', StatusController::class)->middleware(['auth']);
 
-Route::resource('Group', GroupController::class);
+Route::resource('Group', GroupController::class)->middleware(['auth']);
 
-Route::resource('Type', TypeController::class);
+Route::resource('Type', TypeController::class)->middleware(['auth']);
 
 Route::resource('Issues', IssueController::class)->middleware(['auth']);
 
-Route::resource('Solution', SolutionController::class);
+Route::resource('Solution', SolutionController::class)->middleware(['auth']);
 
-Route::resource('Level', LevelController::class);
+Route::resource('Level', LevelController::class)->middleware(['auth']);
 
-Route::post('/settings/View', [SettingsRouterController::class,'loadView']);
+Route::post('/settings/View', [SettingsRouterController::class,'loadView'])->middleware(['auth']);
 
 
 //home
@@ -43,7 +44,7 @@ Route::get('/home/Issues', function () {
     return view('App.Front.listIssues')->with([
         'issues' => $issues
     ]);
-});
+})->middleware(['auth']);
 
 Route::get('/home/Issues/{id}', function ($id) {
     $issue = Issue::where('id',$id)->with('Status')->get();
@@ -54,7 +55,54 @@ Route::get('/home/Issues/{id}', function ($id) {
         'issue' => $issue[0],
         'messages' => $messages
     ]);
-});
+})->middleware(['auth']);
 
+Route::get('/Solutions/dashboard/{id}', function ($id) {
+    $solution = \App\Models\Solution::find($id);
+    return view('App.Back.solution.solutionForm')->with([
+        'solution' => $solution
+    ]);
+})->middleware(['auth']);
+
+Route::get('/Solutions/dashboard', function () {
+    return view('App.Back.solution.solutionForm');
+})->middleware(['auth']);
+
+
+Route::post('/solution/update/{id}', function ($id , Request $request) {
+    $title = $request->input('title');
+    $Description = $request->input('description');
+
+    $solution = \App\Models\Solution::find($id);
+
+    $solution->title = $title;
+    $solution->Description = $Description;
+
+    $solution->save();
+
+    $request->session()->flash('message', 'Was updated Successfully');
+
+    return redirect()->back();
+})->middleware(['auth']);
+
+Route::post('/solution/create', function (Request $request) {
+    $title = $request->input('title');
+    $Description = $request->input('description');
+
+    $solution = new \App\Models\Solution();
+
+    $solution->title = $title;
+    $solution->Description = $Description;
+    $solution->user = Auth::user()->id;
+    $solution->issue = 1;
+    $solution->rating = 0;
+
+
+    $solution->save();
+
+    $request->session()->flash('message', 'Was created Successfully');
+
+    return redirect()->back();
+})->middleware(['auth']);
 
 

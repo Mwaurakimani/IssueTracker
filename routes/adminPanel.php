@@ -12,12 +12,12 @@ use App\Http\Controllers\UserController;
 Route::resource('Users', UserController::class)->middleware(['auth']);
 
 Route::get('/Solutions', function () {
-    return view('App.Back.solutions');
-})->middleware(['auth'])->name('Solutions');
+    return view('App.Back.solution.solutions');
+})->middleware(['auth'])->name('Solutions')->middleware(['auth']);;
 
 Route::get('/Reports', function () {
     return view('App.Back.reports');
-})->middleware(['auth'])->name('Reports');
+})->middleware(['auth'])->name('Reports')->middleware(['auth']);;
 
 Route::get('/Settings', function () {
     $levels = \App\Models\Level::all();
@@ -46,7 +46,7 @@ Route::post('/Issues/updateData/{id}', function ($id, Request $request) {
     return array(
         'data' => true
     );
-});
+})->middleware(['auth']);;
 
 
 

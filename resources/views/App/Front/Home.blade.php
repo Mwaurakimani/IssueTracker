@@ -1,5 +1,8 @@
 @extends('layouts.front')
+@php
+    $solutions = \App\Models\Solution::all();
 
+@endphp
 @section('content')
     <x-Layouts.front-end-header>
     </x-Layouts.front-end-header>
@@ -32,31 +35,17 @@
             <div class="main-list-panel">
                 <h4>Knowledge Base</h4>
                 <div class="main-list-view">
-                    <div class="main-list-item">
-                        <a href="">
-                            <img src="{{ asset('storage/Images/fold.png') }}" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> aliquam est inventore
-                                modi recusandae totam voluptatibus.</p>
-                        </a>
-                    </div><div class="main-list-item">
-                        <a href="">
-                            <img src="{{ asset('storage/Images/fold.png') }}" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> aliquam est inventore
-                                modi recusandae totam voluptatibus.</p>
-                        </a>
-                    </div><div class="main-list-item">
-                        <a href="">
-                            <img src="{{ asset('storage/Images/fold.png') }}" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> aliquam est inventore
-                                modi recusandae totam voluptatibus.</p>
-                        </a>
-                    </div><div class="main-list-item">
-                        <a href="">
-                            <img src="{{ asset('storage/Images/fold.png') }}" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> aliquam est inventore
-                                modi recusandae totam voluptatibus.</p>
-                        </a>
-                    </div>
+                    @if(isset($solutions))
+                        @foreach($solutions as $solution)
+                            <div class="main-list-item">
+                                <a href="/home/Solutions/{{ $solution->id }}">
+                                    <img src="{{ asset('storage/Images/fold.png') }}" alt="">
+                                    <p>{{ $solution->title }}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                    @else
+                    @endif
                 </div>
             </div>
         </div>
