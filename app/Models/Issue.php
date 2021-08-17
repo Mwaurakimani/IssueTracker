@@ -27,7 +27,7 @@ class Issue extends Model
         return $this->belongsTo(Level::class );
     }
     public function Status(){
-        return $this->belongsTo(Status::class );
+        return $this->belongsTo(Status::class);
     }
     public function Group(){
         return $this->belongsTo(Group::class );

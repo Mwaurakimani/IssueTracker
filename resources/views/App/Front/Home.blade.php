@@ -9,6 +9,9 @@
 
     <div class="home-body">
         <div class="home-content-body">
+            @auth
+                <h3>Welcome {{ Auth::user()->name }}</h3>
+            @endauth
             <h3>How can we help you today?</h3>
             <form action="">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

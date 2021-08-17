@@ -30,9 +30,9 @@
                             <h4> {{ $issue->subject }}</h4>
                             <p>{{ $issue->created_at->diffForHumans() }}</p>
                         </div>
-                        <div class="sect-3">
-                            <p> {{ $issue['Status']->name }}</p>
-                        </div>
+{{--                        <div class="sect-3">--}}
+{{--                            <p> {{ $issue['Status']->name }}</p>--}}
+{{--                        </div>--}}
                     </div>
                 @endforeach
             </div>

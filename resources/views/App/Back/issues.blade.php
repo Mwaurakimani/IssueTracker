@@ -11,54 +11,58 @@
                     </select>
                 </form>
             </div>
-{{--            <div class="paginator-1-component">--}}
-{{--                <p>1-11 of 200</p>--}}
-{{--                <div class="pagination-page-controller">--}}
-{{--                    <button class="Prev"> &#60;</button>--}}
-{{--                    <button class="Next"> &#62;</button>--}}
-{{--                </div>--}}
-{{--                <select class="form-control" name="sort_elements" id="sort_elements">--}}
-{{--                    <option>Page</option>--}}
-{{--                </select>--}}
-{{--            </div>--}}
+            {{--            <div class="paginator-1-component">--}}
+            {{--                <p>1-11 of 200</p>--}}
+            {{--                <div class="pagination-page-controller">--}}
+            {{--                    <button class="Prev"> &#60;</button>--}}
+            {{--                    <button class="Next"> &#62;</button>--}}
+            {{--                </div>--}}
+            {{--                <select class="form-control" name="sort_elements" id="sort_elements">--}}
+            {{--                    <option>Page</option>--}}
+            {{--                </select>--}}
+            {{--            </div>--}}
         </div>
         <div class="Item-view-content ">
             <div class="dashboard-list-view-horizontal">
 
                 <div class="issues-content-holder">
 
-                    @foreach($issues as $issue)
-                        <a href="/Issues/{{ $issue->id }}" class="ticket-list-item">
-                            <div class="letter-logo">
-                                <p>{{ $issue['user']->name[0] }}</p>
-                            </div>
-                            <div class="display-details">
-                                <p class="new-badge-display">New</p>
-                                <p class="title">{{ $issue->subject }}</p>
-                                <div class="summary-details">
-                                    <span>{{ $issue['user']->name }}</span>
-                                    <span>.</span>
-                                    <span>{{ $issue->created_at->diffForHumans() }}</span>
+                    @if(!empty($issues))
+                        @forelse($issues as $issue)
+                            <a href="/Issues/{{ $issue->id }}" class="ticket-list-item">
+                                <div class="letter-logo">
+                                    <p>{{ $issue->User->name[0] }}</p>
                                 </div>
-                            </div>
-                            <div class="sub-details">
-                                <div class="content-group">
-                                    <p>Priority</p>
-                                    <p style="color: orange">: {{ $issue['Priority']->name }}</p>
+                                <div class="display-details">
+                                    <p class="new-badge-display">New</p>
+                                    <p class="title">{{ $issue->subject }}</p>
+                                    <div class="summary-details">
+                                        <span>{{ $issue->User->name }}</span>
+                                        <span>.</span>
+                                        <span>{{ $issue->created_at->diffForHumans() }}</span>
+                                    </div>
                                 </div>
-                                <div class="content-group">
-                                    <p>Level</p>
-                                    <p style="color: green">: {{ $issue['Level']->name }}</p>
+                                <div class="sub-details">
+                                    <div class="content-group">
+                                        <p>Priority</p>
+                                        <p style="color: orange">: {{ $issue['Priority']->name }}</p>
+                                    </div>
+                                    <div class="content-group">
+                                        <p>Level</p>
+                                        <p style="color: green">: {{ $issue['Level']->name }}</p>
+                                    </div>
+                                    <div class="content-group">
+                                        <p>Status</p>
+                                        <p style="color: grey">: {{ $issue['Status']->name }}</p>
+                                    </div>
                                 </div>
-                                <div class="content-group">
-                                    <p>Status</p>
-                                    <p style="color: grey">: {{ $issue['Status']->name }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    @empty
-                        <p>No Issues Found</p>
-                    @endforelse
+                            </a>
+                            @empty
+
+                            @endforelse
+                            @else
+                                <p>No Issues Found</p>
+                    @endif
 
                 </div>
 

@@ -12,7 +12,7 @@ class Status extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public function Issue(){
-        return $this->hasMany(Issue::class);
-    }
+//    public function Issue(){
+//        return $this->hasMany(Issue::class);
+//    }
 }

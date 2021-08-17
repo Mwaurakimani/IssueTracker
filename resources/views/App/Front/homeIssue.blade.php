@@ -1,11 +1,15 @@
 @extends('layouts.front')
 
-@section('content')
-    <x-layout.front-end-header>
-    </x-layout.front-end-header>
+@php
+@endphp
 
-    <x-layout.front-end-nav>
-    </x-layout.front-end-nav>
+
+@section('content')
+    <x-Layouts.front-end-header>
+    </x-Layouts.front-end-header>
+
+    <x-Layouts.front-end-nav>
+    </x-Layouts.front-end-nav>
 
     <div class="home-body" style="padding: 0">
         <div class="list-issues-bar">
@@ -19,20 +23,22 @@
                 <div class="id-panel">
                     <p>#{{ $issue->id." " }} </p>
                     <span>.</span>
-                    <p>{{ $issue['Status']->name }}</p>
+                    <p>{{ $issue->Status->name }}</p>
                 </div>
                 <p> {{ $issue->description }}</p>
-                @foreach($messages as $message)
-                    @if($message->User->title == 'Client')
-                        <x-Cards.user-message-card :issue="$issue" :message="$message">
+                @if(isset($messages))
+                    @foreach($messages as $message)
+                        @if($message->User->title == 'Client')
+                            <x-Cards.user-message-card :issue="$issue" :message="$message">
 
-                        </x-Cards.user-message-card>
-                    @else
-                        <x-Cards.admin-message-card :issue="$issue" :message="$message">
+                            </x-Cards.user-message-card>
+                        @else
+                            <x-Cards.admin-message-card :issue="$issue" :message="$message">
 
-                        </x-Cards.admin-message-card>
-                    @endif
-                @endforeach
+                            </x-Cards.admin-message-card>
+                        @endif
+                    @endforeach
+                @endif
                 <form action="" id="form_entry">
                     <div class="msg-card ">
                         <div class="user-details">

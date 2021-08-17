@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Issue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Message;
 
 class IssueController extends Controller
 {
