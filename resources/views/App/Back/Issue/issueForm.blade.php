@@ -3,8 +3,7 @@
 @section('content')
     <div class="Issues-view">
         <div class="back-end-action-bar">
-            <button>Close</button>
-            <button onclick="window.location.href='/Issue/Delete/{{$issue->id}}'">Delete</button>
+            <button onclick="window.location.href='/Issue/Delete/{{$issue->id}}'">Close</button>
         </div>
         <div class="issue-display-admin">
             <div class="message-display-area">
@@ -76,37 +75,65 @@
                 <form action="">
                     <h6>Properties</h6>
                     <div class="form-group">
-                        <label for="">Team Member</label>
-                        <select name="" id="">
-                            <option value="1">Technical Team</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="">Priority</label>
-                        <select name="" id="">
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
+                        @php
+                            $priorities = \App\Models\Priority::all();
+
+                            $priority_options = array();
+
+                        foreach ($priorities as $priority){
+                            array_push($priority_options,[$priority->id,$priority->name]);
+                        }
+
+                        $selected = $issue->priority_id;
+
+
+                        @endphp
+
+
+                        <x-Elements.select-Elem :name="__('priority')" :options="$priority_options" :selected="$selected">
+
+                        </x-Elements.select-Elem>
+
                     </div>
                     <div class="form-group">
                         <label for="">Level</label>
-                        <select name="" id="">
-                            <option value="Low">Standard</option>
-                            <option value="Medium">Specialized</option>
-                        </select>
+                        @php
+                            $levels = \App\Models\Level::all();
+
+                            $levels_options = array();
+
+                        foreach ($levels as $level){
+                            array_push($levels_options,[$level->id,$level->name]);
+                        }
+
+                        $selected = $issue->level_id;
+                        @endphp
+
+                        <x-Elements.select-Elem :name="__('level')" :options="$levels_options" :selected="$selected">
+
+                        </x-Elements.select-Elem>
                     </div>
                     <div class="form-group">
                         <label for="">Status</label>
-                        <select name="" id="">
-                            <option value="Low">Pending</option>
-                            <option value="Medium">Received</option>
-                            <option value="Medium">Solving</option>
-                            <option value="Medium">Solved</option>
-                        </select>
+                        @php
+                            $statuses = \App\Models\Status::all();
+
+                                $statuses_options = array();
+
+                            foreach ($statuses as $status){
+                                array_push($statuses_options,[$status->id,$status->name]);
+                            }
+
+                            $selected = $issue->status_id;
+                        @endphp
+
+                        <x-Elements.select-Elem :name="__('status')" :options="$statuses_options" :selected="$selected">
+
+                        </x-Elements.select-Elem>
                     </div>
 
-                    <button>Update</button>
+                    <button id="Update_properties">Update</button>
                 </form>
             </div>
             <div class="contact-details-area">
@@ -176,6 +203,35 @@
             } else {
                 alert('Message cannot be blank');
             }
+        });
+
+
+        $('#Update_properties').on('click', () => {
+            event.preventDefault();
+            let id = 1;
+            let priority = $('select[name="priority"]').val();
+            let level = $('select[name="level"]').val();
+            let status = $('select[name="status"]').val();
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/Issues/updateData/'+id,
+                data: {
+                    'priority' : priority,
+                    'level' : level,
+                    'status' : status
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if(data.data){
+                        alert("Updated Successfully");
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
         });
     </script>
 

@@ -18,12 +18,12 @@
         <div class="issue-form-home-display">
             <div class="msg-body">
                 <div class="banner-status">
-                    Being Processed
+                    {{ $issue->Status->name }}
                 </div>
                 <div class="id-panel">
                     <p>#{{ $issue->id." " }} </p>
                     <span>.</span>
-                    <p>{{ $issue->Status->name }}</p>
+                    <p>{{ $issue->subject }}</p>
                 </div>
                 <p> {{ $issue->description }}</p>
                 @if(isset($messages))
@@ -62,7 +62,7 @@
             <div class="status-body">
                 <h4>Ticket Status</h4>
                 <h6>Status</h6>
-                <p>This status</p>
+                <p>{{ $issue->Status->name }}</p>
             </div>
         </div>
     </div>

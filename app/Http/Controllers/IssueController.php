@@ -24,7 +24,7 @@ class IssueController extends Controller
 
 //        dd($issues);
 
-        return view('App.Back.issues')->with([
+        return view('App.Back.Issue.issues')->with([
             'issues' => $issues
         ]);
     }
