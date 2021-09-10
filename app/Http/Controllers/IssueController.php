@@ -114,4 +114,48 @@ class IssueController extends Controller
     {
         //
     }
+
+    public function sort_issues(Request $request)
+    {
+        $response = null;
+
+        $Sort = $request->Sort;
+        $Status = $request->Status;
+        $Priority = $request->Priority;
+        $Level = $request->Level;
+
+        $query = Issue::select('*');
+
+
+        if($Status != 0 ){
+            $query = $query->where('status_id',$Status);
+        }
+        if($Priority != 0 ){
+            $query = $query->where('priority_id',$Priority);
+        }
+        if($Level != 0 ){
+            $query = $query->where('level_id',$Level);
+        }
+        if($Sort != 0 ){
+            switch ($Sort){
+                case '1':
+                    $query = $query->orderBy('created_at','ASC');
+                    break;
+                case '2':
+                    $query = $query->orderBy('created_at','DESC');
+                    break;
+
+            }
+        }
+
+        $response = $query->get();
+
+        $data = view('components.Layouts.Lists.Issues-list')
+            ->with([
+                'issues' => $response,
+            ])
+            ->render();
+
+        return $data;
+    }
 }

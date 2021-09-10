@@ -119,6 +119,7 @@ Route::get('/home/search',function (Request $request){
 
 
 
+
 require 'adminPanel.php';
 
 require __DIR__ . '/auth.php';

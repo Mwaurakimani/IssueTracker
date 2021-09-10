@@ -28,6 +28,8 @@ Route::get('/Settings', function () {
     ]);
 })->middleware(['auth'])->name('Settings');
 
+Route::post('/sortIssues',[\App\Http\Controllers\IssueController::class,'sort_issues'])->middleware(['auth'])->name('sort_issues');
+
 
 //ajax request
 Route::post('/Issues/updateData/', function (Request $request) {

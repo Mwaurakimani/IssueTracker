@@ -87,10 +87,9 @@ body, html {
 }
 
 .sort-component {
-    grid-column: 1/4;
+    grid-column: 2/3;
     display: flex;
     align-items: center;
-    width: 280px;
     margin: auto;
 
     form {
@@ -100,6 +99,7 @@ body, html {
         width: 100%;
 
         label {
+            width: 50px;
             font-size: 1.5em;
             font-weight: 700;
         }
@@ -107,6 +107,13 @@ body, html {
         select {
             border-radius: 5px;
         }
+    }
+}
+
+.Issues-section{
+    width: 240px;
+    select:nth-of-type(1){
+        margin-left: 10px;
     }
 }
 
