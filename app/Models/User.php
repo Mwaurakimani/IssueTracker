@@ -56,4 +56,7 @@ class User extends Authenticatable
     public function Message(){
         return $this->hasMany(Message::class);
     }
+    public function Vote(){
+        return $this->hasMany(Vote::class);
+    }
 }

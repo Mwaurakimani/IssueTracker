@@ -7,7 +7,7 @@
             <a href="/Account">Account</a>
         </li>
 
-        @if(Auth::check())
+        @if(Auth::check() && Auth::user()->title == 'Admin')
             <li>
                 <a href="/Dashboard">Dashboard</a>
             </li>

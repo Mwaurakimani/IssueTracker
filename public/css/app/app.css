@@ -631,94 +631,6 @@ nav .account-management-nav .account-logo .account-action > *:hover {
   box-shadow: 0 0 6px grey;
   border-radius: 8px;
 }
-.Users-view .Item-view-content .user-content-holder .main-panel {
-  width: 70%;
-  height: 100%;
-  display: flex;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-img {
-  width: 30%;
-  padding-top: 20px;
-  height: 100%;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-img .icon-holder {
-  width: 200px;
-  height: 200px;
-  background-color: #BCEBE4;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-img .icon-holder p {
-  font-size: 8em;
-  font-weight: bold;
-  text-align: center;
-  font-family: sans-serif;
-  color: #5b5b5b;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-details {
-  width: 70%;
-  height: 100%;
-  padding: 20px;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .form-group {
-  display: flex;
-  margin-bottom: 20px;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .form-group label {
-  width: 150px;
-  height: 40px;
-  display: inline-block;
-  line-height: 40px;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .form-group input {
-  width: 300px;
-  border-radius: 5px;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .button-display {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  padding-right: 10px;
-  align-items: center;
-  justify-content: flex-end;
-}
-.Users-view .Item-view-content .user-content-holder .main-panel .acc-details .button-display button {
-  height: 34px;
-  width: 150px;
-  background-color: #37eab8;
-  color: white;
-  font-weight: bolder;
-}
-.Users-view .Item-view-content .user-content-holder .sub-panel {
-  width: 30%;
-  height: 100%;
-  background-color: #d6d6d6;
-  padding: 10px;
-  border-left: 1px solid #aeaeae;
-}
-.Users-view .Item-view-content .user-content-holder .sub-panel h4 {
-  font-size: 1.3em;
-  color: #606060;
-  font-weight: bolder;
-}
-.Users-view .Item-view-content .user-content-holder .sub-panel .form-group label {
-  display: block;
-}
-.Users-view .Item-view-content .user-content-holder .sub-panel .form-group input {
-  width: 250px;
-}
-.Users-view .Item-view-content .user-content-holder .sub-panel button {
-  margin-top: 20px;
-  width: 200px;
-  height: 34px;
-  background-color: #474747;
-  color: white;
-}
-.Users-view .Item-view-content .user-content-holder .sub-panel button:hover {
-  background-color: #949494;
-}
 
 body, html {
   width: 100%;
@@ -998,7 +910,6 @@ body, html {
   margin: auto;
   margin-top: 20px;
   border-radius: 5px;
-  height: 500px;
   padding: 40px;
   background-color: white;
   box-shadow: 0 0 6px grey;
@@ -1007,14 +918,71 @@ body, html {
   font-size: 1.8em;
   margin-bottom: 10px;
 }
-.home-body .home-solution-display .title-display {
-  margin-bottom: 100px;
-}
 .home-body .home-solution-display .title-display p {
   font-size: 1.2em;
   font-weight: 500;
   color: #535353;
 }
+.home-body .home-solution-display .description-display {
+  width: 80%;
+  margin-bottom: 20px;
+}
+.home-body .home-solution-display .description-display p {
+  font-size: 1.2em;
+}
+.home-body .home-solution-display .description-display ul, .home-body .home-solution-display .description-display ol {
+  margin-left: 20px;
+}
+.home-body .home-solution-display .description-display ul {
+  list-style: circle;
+}
+.home-body .home-solution-display .description-display ol {
+  list-style: decimal;
+}
+.home-body .home-solution-display .description-display li {
+  font-weight: normal;
+}
+.home-body .home-solution-display .voting-section {
+  width: 100%;
+  height: 60px;
+  background-color: #dddddd;
+  border-radius: 5px;
+  border: solid 1px #a5a5a5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.home-body .home-solution-display .voting-section .display-section {
+  display: flex;
+}
+.home-body .home-solution-display .voting-section .display-section .icon-display {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.home-body .home-solution-display .voting-section .display-section .icon-display img {
+  width: 24px;
+  height: 24px;
+}
+.home-body .home-solution-display .voting-section .display-section p {
+  margin-left: 2px;
+  color: #484848;
+}
+.home-body .home-solution-display .voting-section .upside-down {
+  transform: rotate(180deg);
+}
+.home-body .home-solution-display .voting-section .default-color {
+  background-color: grey;
+}
+.home-body .home-solution-display .voting-section .upvote {
+  background-color: #2ce31e;
+}
+.home-body .home-solution-display .voting-section .downvote {
+  background-color: red;
+}
+
 .settings-view {
   width: 100%;
   height: calc(100% - 50px);
@@ -1536,6 +1504,151 @@ body, html {
   font-style: italic;
 }
 
+.Account-body label {
+  font-weight: 500;
+}
+.Account-body label::after {
+  content: " :";
+}
+.Account-body input {
+  border: none;
+}
+
+.report-view {
+  width: 100%;
+}
+.report-view .date-picker {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.report-view .date-picker a {
+  margin-right: 20px;
+}
+.report-view .date-picker .Active {
+  font-weight: bolder;
+  color: #4CE9B9;
+}
+.report-view .button-selector {
+  width: 100%;
+  height: 170px;
+  border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.report-view .button-selector .grouper {
+  width: 310px;
+  border-radius: 5px;
+  margin: 30px;
+  overflow: hidden;
+}
+.report-view .button-selector .grouper .top-layer {
+  box-shadow: 0 0 6px grey;
+  padding: 5px;
+  width: 100px;
+  background-color: #484848;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin: auto auto 5px;
+}
+.report-view .button-selector .grouper .top-layer:hover {
+  background-color: black;
+}
+.report-view .button-selector .grouper .bottom-layer {
+  width: 100%;
+}
+.report-view .button-selector .grouper .bottom-layer button {
+  box-shadow: 0 0 6px grey;
+  height: 58px;
+  width: 100px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+.report-view .button-selector .grouper .bottom-layer button:nth-of-type(1) {
+  margin-right: 100px;
+  background-color: #60e260;
+}
+.report-view .button-selector .grouper .bottom-layer button:nth-of-type(1):hover {
+  background-color: #1a8f1a;
+}
+.report-view .button-selector .grouper .bottom-layer button:nth-of-type(2) {
+  background-color: #f56b6b;
+}
+.report-view .button-selector .grouper .bottom-layer button:nth-of-type(2):hover {
+  background-color: #f23b3b;
+}
+.report-view .table-content {
+  margin: auto;
+  width: 96%;
+  height: 400px;
+}
+.report-view .table-content table {
+  width: 100%;
+}
+.report-view .table-content table thead tr {
+  background-color: grey;
+  color: white;
+}
+.report-view .table-content table thead tr th {
+  text-align: start;
+  padding-left: 10px;
+}
+.report-view .table-content table tbody tr td {
+  padding-left: 10px;
+}
+.report-view .table-content table tbody tr:hover {
+  cursor: pointer;
+  background-color: #4CE9B9;
+  color: white;
+}
+.report-view .table-content .Issues-table th:nth-of-type(1) {
+  width: 3%;
+  padding: 10px 0px;
+}
+.report-view .table-content .Issues-table td:nth-of-type(1) {
+  width: 30%;
+}
+.report-view .table-content .Issues-table td:nth-of-type(2) {
+  width: 20%;
+}
+.report-view .table-content .Issues-table td:nth-of-type(3) {
+  width: 10%;
+}
+.report-view .table-content .Issues-table td:nth-of-type(4) {
+  width: 10%;
+}
+.report-view .table-content .Issues-table td:nth-of-type(5) {
+  width: 15%;
+}
+.report-view .table-content .solutions-report-table th:nth-of-type(1) {
+  width: 2%;
+  padding: 10px 0px;
+}
+.report-view .table-content .solutions-report-table td:nth-of-type(2) {
+  width: 8%;
+  text-align: center;
+}
+.report-view .table-content .solutions-report-table td:nth-of-type(3) {
+  width: 9%;
+  text-align: center;
+}
+.report-view .table-content .solutions-report-table td:nth-of-type(4) {
+  width: 20%;
+}
+.report-view .table-content > p {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: 500;
+  text-align: center;
+}
+
 .header-tab {
   width: 100%;
   height: 60px;
@@ -1590,6 +1703,95 @@ body, html {
 #front-end ul li a:hover {
   -webkit-text-decoration: #318d31 underline;
           text-decoration: #318d31 underline;
+}
+
+.user-form .main-panel {
+  width: 70%;
+  height: 100%;
+  display: flex;
+}
+.user-form .main-panel .acc-img {
+  width: 30%;
+  padding-top: 20px;
+  height: 100%;
+}
+.user-form .main-panel .acc-img .icon-holder {
+  width: 200px;
+  height: 200px;
+  background-color: #BCEBE4;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-form .main-panel .acc-img .icon-holder p {
+  font-size: 8em;
+  font-weight: bold;
+  text-align: center;
+  font-family: sans-serif;
+  color: #5b5b5b;
+}
+.user-form .main-panel .acc-details {
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+}
+.user-form .main-panel .acc-details .form-group {
+  display: flex;
+  margin-bottom: 20px;
+}
+.user-form .main-panel .acc-details .form-group label {
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
+}
+.user-form .main-panel .acc-details .form-group input {
+  width: 300px;
+  border-radius: 5px;
+}
+.user-form .main-panel .acc-details .button-display {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding-right: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.user-form .main-panel .acc-details .button-display button {
+  height: 34px;
+  width: 150px;
+  background-color: #37eab8;
+  color: white;
+  font-weight: bolder;
+}
+.user-form .sub-panel {
+  width: 30%;
+  height: 100%;
+  background-color: #d6d6d6;
+  padding: 10px;
+  border-left: 1px solid #aeaeae;
+}
+.user-form .sub-panel h4 {
+  font-size: 1.3em;
+  color: #606060;
+  font-weight: bolder;
+}
+.user-form .sub-panel .form-group label {
+  display: block;
+}
+.user-form .sub-panel .form-group input {
+  width: 250px;
+}
+.user-form .sub-panel button {
+  margin-top: 20px;
+  width: 200px;
+  height: 34px;
+  background-color: #474747;
+  color: white;
+}
+.user-form .sub-panel button:hover {
+  background-color: #949494;
 }
 
 .home-body {

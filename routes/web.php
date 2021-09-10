@@ -16,7 +16,10 @@ use App\Models\Message;
 */
 
 Route::get('/', function () {
-    return view('App.Front.Home');
+    $solutions = \App\Models\Solution::all();
+    return view('App.Front.Home')->with([
+        'solutions'=>$solutions
+    ]);
 });
 
 Route::get('/logout', function () {
@@ -105,7 +108,15 @@ Route::get('/home/Solutions/{id}', function ($id) {
     return view('App.Front.homeSolution')->with([
         'solution' => $solution
     ]);
-})->middleware(['auth']);;
+});
+
+Route::get('/home/search',function (Request $request){
+    $solutions = \App\Models\Solution::where('title','LIKE',"%{$request->searchSolution}%")->get();
+    return view('App.Front.Home')->with([
+        'solutions' => $solutions
+    ]);
+});
+
 
 
 require 'adminPanel.php';

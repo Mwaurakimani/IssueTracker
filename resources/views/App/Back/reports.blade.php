@@ -1,96 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="dashboard-view">
-        <div class="display_panel">
-            <div class="layout-1">
-                <div class="card-holder">
-                    <p>Active Team Member</p>
-                    <p>55</p>
+    <div class="report-view">
+        <div class="date-picker">
+            <a class="Active" href="">Day</a>
+            <a href="">Week</a>
+            <a href="">Month</a>
+        </div>
+        <div class="button-selector">
+            <div class="grouper group1">
+                <div class="top-layer">
+                    <button><p>Issues</p><span>200</span></button>
+
                 </div>
-                <div class="card-holder">
-                    <p>Active Team Member</p>
-                    <p>55</p>
+                <div class="bottom-layer">
+                    <button><p>Resolved</p><span>200</span></button>
+                    <button><p>Unresolved</p><span>200</span></button>
                 </div>
-                <div class="card-holder">
-                    <p>Active Team Member</p>
-                    <p>55</p>
+            </div><div class="grouper group1">
+                <div class="top-layer">
+                    <button><p>Solutions</p><span>200</span></button>
+
                 </div>
-                <div class="card-holder">
-                    <p>Active Team Member</p>
-                    <p>55</p>
-                </div>
-                <div class="dashboard-description">
-                    <div class="row-item-1">
-                        <div class="card-holder-bottom">
-                            <h3>Customer Ratings</h3>
-                            <div class="column-grid">
-                                <div class="holder">
-                                    <p>Positive</p>
-                                    <p style="color: #4fbf47" >80%</p>
-                                </div>
-                            </div>
-                            <div class="column-grid">
-                                <div class="holder">
-                                    <p>Neutral</p>
-                                    <p style="color: orange" >80%</p>
-                                </div>
-                            </div>
-                            <div class="column-grid">
-                                <div class="holder">
-                                    <p>Negative</p>
-                                    <p style="color:red" >80%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row-item-2">
-                        <div class="card-holder-bottom">
-                            <div class="display-cards">
-                                <P>Received</P>
-                                <p>200</p>
-                            </div>
-                            <div class="display-cards">
-                                <P>Received</P>
-                                <p>200</p>
-                            </div>
-                            <div class="display-cards">
-                                <P>Received</P>
-                                <p>200</p>
-                            </div>
-                            <div class="display-cards">
-                                <P>Received</P>
-                                <p>200</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bottom-layer">
+                    <button><p>Up-votes</p><span>200</span></button>
+                    <button><p>Down-votes</p><span>200</span></button>
                 </div>
             </div>
-            <div class="layout-2">
-                <h3>Unresolved</h3>
-                <div class="list-horizontal-element">
-                    <div class="list-elem">
-                        <P>Element</P>
-                        <p>4</p>
-                    </div>
-                    <div class="list-elem">
-                        <P>Element</P>
-                        <p>4</p>
-                    </div>
-                    <div class="list-elem">
-                        <P>Element</P>
-                        <p>4</p>
-                    </div>
-                    <div class="list-elem">
-                        <P>Element</P>
-                        <p>4</p>
-                    </div>
-                    <div class="list-elem">
-                        <P>Element</P>
-                        <p>4</p>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="table-content">
+            @php
+            $issues = \App\Models\Issue::all();
+            @endphp
+
+
+            <x-Elements.issues-table :table="__('solutions-report-table')" :issues="$issues">
+
+            </x-Elements.issues-table>
         </div>
     </div>
 @endsection

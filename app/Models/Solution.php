@@ -14,4 +14,8 @@ class Solution extends Model
     public function Issue(){
         return $this->hasMany(Issue::class);
     }
+
+    public function Vote(){
+        return $this->hasMany(Vote::class);
+    }
 }

@@ -13,6 +13,8 @@ use App\Http\Controllers\SettingsRouterController;
 use App\Models\Issue;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Controllers\VoteController;
 
 
 Route::resource('Team', TeamController::class)->middleware(['auth']);;
@@ -44,6 +46,42 @@ Route::get('/home/Issues', function () {
     return view('App.Front.listIssues')->with([
         'issues' => $issues
     ]);
+})->middleware(['auth']);
+
+Route::get('/Account', function () {
+    return view('App.Front.Account');
+})->middleware(['auth']);
+
+Route::put('/Account/ChangePassword/{id}', function (Request  $request) {
+    $password = ($request->new_password);
+
+    $validated = $request->validate([
+        'current_password' => [
+            'required',
+            'max:255',
+            function($attribute,$value,$fail){
+                $password = Auth::user()->password;
+                $check = Hash::check($value,$password);
+
+                if(!$check){
+                    $fail("The ".$attribute." doses not match");
+                }
+            }],
+        'new_password' => 'required|max:255|different:current_password',
+        'confirm_password' => ['required','max:255','same:new_password']
+    ]);
+
+    $user = User::find( \Illuminate\Support\Facades\Auth::user()->id);
+
+    $user->password = bcrypt($validated['new_password']);
+
+    $user->save();
+
+    $request->session()->flash('message', 'Was updated Successfully');
+
+    return redirect()->back();
+
+
 })->middleware(['auth']);
 
 Route::get('/home/Issues/{id}', function ($id) {
@@ -104,5 +142,7 @@ Route::post('/solution/create', function (Request $request) {
 
     return redirect()->back();
 })->middleware(['auth']);
+
+Route::post('/solutionVoting',[VoteController::class,'vote']);
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @php
-    $solutions = \App\Models\Solution::all();
+
 
 @endphp
 @section('content')
@@ -16,8 +16,8 @@
                 <h3>Welcome {{ Auth::user()->name }}</h3>
             @endauth
             <h3>How can we help you today?</h3>
-            <form action="">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="/home/search">
+                <input type="search" placeholder="Search by Title" name="searchSolution">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="reroute-pack">
@@ -34,19 +34,9 @@
             </div>
             <div class="main-list-panel">
                 <h4>Knowledge Base</h4>
-                <div class="main-list-view">
-                    @if(isset($solutions))
-                        @foreach($solutions as $solution)
-                            <div class="main-list-item">
-                                <a href="/home/Solutions/{{ $solution->id }}">
-                                    <img src="{{ asset('storage/Images/fold.png') }}" alt="">
-                                    <p>{{ $solution->title }}</p>
-                                </a>
-                            </div>
-                        @endforeach
-                    @else
-                    @endif
-                </div>
+                <x-Layouts.Filters.home-filter :solutions="$solutions">
+
+                </x-Layouts.Filters.home-filter>
             </div>
         </div>
     </div>

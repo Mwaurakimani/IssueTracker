@@ -30,12 +30,14 @@ Route::get('/Settings', function () {
 
 
 //ajax request
-Route::post('/Issues/updateData/{id}', function ($id, Request $request) {
-    $issue = Issue::find($id);
+Route::post('/Issues/updateData/', function (Request $request) {
+    $issue = Issue::find($request->id);
 
     $priority = $request->priority;
     $level = $request->level;
     $status = $request->status;
+
+
 
     $issue->priority_id = $priority;
     $issue->level_id = $level;

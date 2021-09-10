@@ -72,7 +72,7 @@
                         <p>{{ $issue->updated_at->diffForHumans() }}</p>
                     </div>
                 </div>
-                <form action="">
+                <form action="" id="Issue_sub_details_form" data-id="{{ $issue->id }}">
                     <h6>Properties</h6>
                     <div class="form-group">
                         <label for="">Priority</label>
@@ -208,7 +208,8 @@
 
         $('#Update_properties').on('click', () => {
             event.preventDefault();
-            let id = 1;
+            let id = $('#Issue_sub_details_form').attr('data-id');
+
             let priority = $('select[name="priority"]').val();
             let level = $('select[name="level"]').val();
             let status = $('select[name="status"]').val();
@@ -216,8 +217,9 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/Issues/updateData/'+id,
+                url: '/Issues/updateData/',
                 data: {
+                    'id':id,
                     'priority' : priority,
                     'level' : level,
                     'status' : status
@@ -229,7 +231,7 @@
                     }
                 },
                 error: function (data) {
-                    console.log(data);
+                    console.log(data.responseJSON);
                 }
             });
         });
