@@ -4,10 +4,10 @@
     <div class="Users-view">
         <div class="back-end-action-bar">
             @if(isset($solution))
-            <button form="solutionsForm" type="submit">Update</button>
-            <button onclick="window.location.href='/solution/delete/{{ $solution->id }}'">Delete</button>
+                <button form="solutionsForm" type="submit">Update</button>
+                <button onclick="window.location.href='/solution/delete/{{ $solution->id }}'">Delete</button>
             @else
-            <button form="solutionsForm" type="submit">Create</button>
+                <button form="solutionsForm" type="submit">Create</button>
             @endif
         </div>
         @if(Session::has('message'))
@@ -22,20 +22,38 @@
 
                 @if(isset($solution))
                     <form method="POST" action="/solution/update/{{ $solution->id }}" id="solutionsForm">
-                @else
-                    <form method="POST" action="/solution/create/" id="solutionsForm">
-                @endif
-                        @csrf
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="Text" class="form-control" id="title" name="title"
-                                   value="{{ isset($solution->title) ? $solution->title : '' }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="details">Description</label>
-                            <textarea name="description" id="details">{{ isset($solution->Description)? $solution->Description : '' }}</textarea>
-                        </div>
-                    </form>
+                        @else
+                            <form method="POST" action="/solution/create/" id="solutionsForm">
+                                @endif
+                                @csrf
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="Text" class="form-control" id="title" name="title"
+                                           value="{{ isset($solution->title) ? $solution->title : '' }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="details">Description</label>
+                                    <textarea name="description"
+                                              id="details">{{ isset($solution->Description)? $solution->Description : '' }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="details">Comments</label>
+                                    <div class="comment_section">
+
+                                        @if(isset($comments))
+                                            @forelse($comments as $comment)
+                                                <x-Elements.comment-sect :comment="$comment">
+
+                                                </x-Elements.comment-sect>
+                                            @empty
+                                            @endforelse
+                                        @else
+                                            <p>No comments found</p>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </form>
             </div>
             <div class="solution_details">
 

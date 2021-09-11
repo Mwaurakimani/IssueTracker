@@ -117,6 +117,8 @@ Route::get('/home/search',function (Request $request){
     ]);
 });
 
+Route::post('/postComment',[\App\Http\Controllers\SolutionController::class,'add_comment']);
+
 
 
 

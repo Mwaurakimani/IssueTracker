@@ -15,6 +15,7 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\VoteController;
+use App\Models\comment;
 
 
 Route::resource('Team', TeamController::class)->middleware(['auth']);;
@@ -97,8 +98,11 @@ Route::get('/home/Issues/{id}', function ($id) {
 
 Route::get('/Solutions/dashboard/{id}', function ($id) {
     $solution = \App\Models\Solution::find($id);
+    $comments = comment::where('solution_id',$solution->id)->get();
+
     return view('App.Back.solution.solutionForm')->with([
-        'solution' => $solution
+        'solution' => $solution,
+        'comments' => $comments
     ]);
 })->middleware(['auth']);
 

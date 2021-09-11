@@ -34,6 +34,19 @@
     <x-Layouts.front-end-nav>
     </x-Layouts.front-end-nav>
 
+    <div class="system_modal">
+        <div class="body_panel">
+            <div class="comment-box">
+                <h3>Comment:</h3>
+                <textarea id="Comment">
+
+                </textarea>
+                <button onclick="post_comment(1)">Post</button>
+                <button onclick="post_comment(0)">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <div id="form-holder" class="home-body" style="padding: 0" data-id="{{ $solution->id }}">
         <div class="home-solution-display">
             <div class="title-display">
@@ -48,25 +61,27 @@
             @if($votes_isset)
                 <p>Hellow</p>
                 <div class="voting-section">
-                    <div id="upVote" class="display-section " {{Auth::check() ? 'onclick=toggle_vote(1)' : 'onclick=Alert_log_in()'}}>
+                    <div id="upVote"
+                         class="display-section " {{Auth::check() ? 'onclick=toggle_vote(1)' : 'onclick=Alert_log_in()'}}>
                         <div class="icon-display {{ $voteStat ? "upvote" : "default-color" }}">
                             <img src="{{ asset("storage/Images/vote-arrow.png") }}" alt="">
                         </div>
 
                         <p>{{ $positive }}</p>
                     </div>
-                    <div id="downVote" class="display-section " {{Auth::check() ? 'onclick=toggle_vote(0)' : 'onclick=Alert_log_in()'}}>
+                    <div id="downVote"
+                         class="display-section " {{Auth::check() ? 'onclick=toggle_vote(0)' : 'onclick=Alert_log_in()'}}>
                         <div class="icon-display upside-down {{ !$voteStat ? "downvote" : "default-color" }}">
                             <img src="{{ asset("storage/Images/vote-arrow.png") }}" alt="">
                         </div>
                         <p> {{ $negative }}</p>
                     </div>
 
-                <script>
-                    function Alert_log_in(){
-                        alert("Please Log in to allow voting");
-                    }
-                </script>
+                    <script>
+                        function Alert_log_in() {
+                            alert("Please Log in to allow voting");
+                        }
+                    </script>
                 </div>
             @endif
         </div>
@@ -80,12 +95,6 @@
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             }
         });
-        CKEDITOR.editorConfig = function (config) {
-            config.toolbar = false
-        }
-        // CKEDITOR.replace('description', {
-        //
-        // });
 
         function toggle_vote(vote) {
             //visual effects
@@ -116,27 +125,89 @@
                 success: function (data) {
                     let rest = data.data;
 
-                    console.log(rest)
-
                     switch (rest) {
                         case 0:
-                            alert("Voted successfully");
+                            toggle_modal("Voted");
                             break;
                         case 1:
                             alert("A similar vote already exist");
                             break;
                         case 2:
-                            alert("Updated successfully");
+                            toggle_modal("Updated");
                             break;
                     }
-
-                    window.location.reload();
                 },
                 error: function (data) {
                     console.log(data);
                 }
             });
+        }
 
+        function request_feedback() {
+        }
+
+        //ui change
+        function toggle_modal(data = null) {
+            let elem = $('.system_modal');
+            let opacity = $('.system_modal').css('opacity');
+
+
+            if (opacity == 1) {
+                elem.fadeOut('fast');
+            } else {
+                elem.fadeIn(200,()=>{
+                    elem.animate(
+                        {opacity:'1'},
+                        {duration: 200}
+                    );
+                });
+            }
+
+            if(data != null){
+                commenter = data;
+            }
+        }
+
+        let commenter = null;
+
+        function post_comment(data) {
+
+            try {
+                switch (data) {
+                    case 1:
+
+                        let comment = $('#Comment').val()
+                        let solution_id = $('#form-holder').attr('data-id');
+
+                        //send comment
+                        $.ajax({
+                            type: 'POST',
+                            url: '/postComment',
+                            data: {
+                                id: solution_id,
+                                comment: comment
+                            },
+                            dataType: 'json',
+                            success: function (data) {
+                                if(comment != null && commenter != "undefined"){
+                                    alert(commenter+" successfully")
+                                }
+                            },
+                            error: function (data) {
+                                console.log(data.responseJSON);
+                            }
+                        });
+                        break;
+                    case 2:
+                        console.log("Cancelled");
+                        break;
+                }
+            }catch (err){
+                console.log(err);
+            }finally {
+                toggle_modal();
+                window.location.reload();
+            }
         }
     </script>
 @endsection
