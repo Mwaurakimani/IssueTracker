@@ -42,7 +42,7 @@ class IssueController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -66,17 +66,17 @@ class IssueController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param \App\Models\Issue $issue
      * @return \Illuminate\Http\Response
      */
-    public function show(Issue $issue,$id)
+    public function show(Issue $issue, $id)
     {
-        $issue = Issue::find($id);
+        $issue = Issue::withTrashed()->find($id);
 
-        $messages = Message::where('issue_id',$issue->id)->orderBy('created_at','asc')->get();
+        $messages = Message::where('issue_id', $issue->id)->orderBy('created_at', 'asc')->get();
 
         return view('App.Back.Issue.issueForm')->with([
-            'issue'=> $issue,
+            'issue' => $issue,
             'messages' => $messages
         ]);
     }
@@ -84,7 +84,7 @@ class IssueController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param \App\Models\Issue $issue
      * @return \Illuminate\Http\Response
      */
     public function edit(Issue $issue)
@@ -95,8 +95,8 @@ class IssueController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Issue  $issue
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Issue $issue
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Issue $issue)
@@ -107,7 +107,7 @@ class IssueController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Issue  $issue
+     * @param \App\Models\Issue $issue
      * @return \Illuminate\Http\Response
      */
     public function destroy(Issue $issue)
@@ -123,29 +123,33 @@ class IssueController extends Controller
         $Status = $request->Status;
         $Priority = $request->Priority;
         $Level = $request->Level;
+        $Transition = $request->Transition;
 
         $query = Issue::select('*');
 
 
-        if($Status != 0 ){
-            $query = $query->where('status_id',$Status);
+        if ($Status != 0) {
+            $query = $query->where('status_id', $Status);
         }
-        if($Priority != 0 ){
-            $query = $query->where('priority_id',$Priority);
+        if ($Priority != 0) {
+            $query = $query->where('priority_id', $Priority);
         }
-        if($Level != 0 ){
-            $query = $query->where('level_id',$Level);
+        if ($Level != 0) {
+            $query = $query->where('level_id', $Level);
         }
-        if($Sort != 0 ){
-            switch ($Sort){
+        if ($Sort != 0) {
+            switch ($Sort) {
                 case '1':
-                    $query = $query->orderBy('created_at','ASC');
+                    $query = $query->orderBy('created_at', 'ASC');
                     break;
                 case '2':
-                    $query = $query->orderBy('created_at','DESC');
+                    $query = $query->orderBy('created_at', 'DESC');
                     break;
 
             }
+        }
+        if ($Transition != 0) {
+            $query = $query->onlyTrashed();
         }
 
         $response = $query->get();

@@ -70,6 +70,14 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Issue Transition</label>
+                            <select class="form-control" id="transition">
+                                <option value="0">Open</option>
+                                <option value="1">Closed</option>
+                            </select>
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -93,13 +101,16 @@
             let status_data = $('#Status').val()
             let Priority_data = $('#Priority').val()
             let Level_data = $('#Level').val()
+            let Transition = $('#transition').val()
 
             let data = {
                 'Sort': sort_data,
                 'Status': status_data,
                 'Priority': Priority_data,
                 'Level': Level_data,
+                'Transition':Transition
             };
+
 
             return data;
         }

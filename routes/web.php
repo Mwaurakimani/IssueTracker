@@ -127,3 +127,5 @@ require 'adminPanel.php';
 require __DIR__ . '/auth.php';
 
 require __DIR__ . '/resources.php';
+
+require __DIR__ . '/Reports/Api.php';

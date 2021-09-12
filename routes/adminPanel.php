@@ -16,7 +16,7 @@ Route::get('/Solutions', function () {
 })->middleware(['auth'])->name('Solutions')->middleware(['auth']);;
 
 Route::get('/Reports', function () {
-    return view('App.Back.reports');
+    return view('App.Back.Reports.reports');
 })->middleware(['auth'])->name('Reports')->middleware(['auth']);;
 
 Route::get('/Settings', function () {

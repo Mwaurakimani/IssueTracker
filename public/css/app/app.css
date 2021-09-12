@@ -1580,139 +1580,60 @@ body, html {
   border: none;
 }
 
-.report-view {
+.report_panel {
   width: 100%;
+  height: 300px;
+  background-color: red;
 }
-.report-view .date-picker {
+
+.over-lay {
   width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
+  height: 100%;
+  background-color: blue;
+  position: absolute;
+  display: none;
 }
-.report-view .date-picker a {
-  margin-right: 20px;
-}
-.report-view .date-picker .Active {
-  font-weight: bolder;
-  color: #4CE9B9;
-}
-.report-view .button-selector {
-  width: 100%;
-  height: 170px;
-  border-bottom: 1px solid grey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.report-view .button-selector .grouper {
-  width: 310px;
-  border-radius: 5px;
-  margin: 30px;
-  overflow: hidden;
-}
-.report-view .button-selector .grouper .top-layer {
-  box-shadow: 0 0 6px grey;
-  padding: 5px;
-  width: 100px;
-  background-color: #484848;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  margin: auto auto 5px;
-}
-.report-view .button-selector .grouper .top-layer:hover {
-  background-color: black;
-}
-.report-view .button-selector .grouper .bottom-layer {
-  width: 100%;
-}
-.report-view .button-selector .grouper .bottom-layer button {
-  box-shadow: 0 0 6px grey;
-  height: 58px;
-  width: 100px;
-  text-align: center;
+.over-lay span {
+  display: block;
+  position: relative;
   background-color: red;
   color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
   border-radius: 5px;
-}
-.report-view .button-selector .grouper .bottom-layer button:nth-of-type(1) {
-  margin-right: 100px;
-  background-color: #60e260;
-}
-.report-view .button-selector .grouper .bottom-layer button:nth-of-type(1):hover {
-  background-color: #1a8f1a;
-}
-.report-view .button-selector .grouper .bottom-layer button:nth-of-type(2) {
-  background-color: #f56b6b;
-}
-.report-view .button-selector .grouper .bottom-layer button:nth-of-type(2):hover {
-  background-color: #f23b3b;
-}
-.report-view .table-content {
-  margin: auto;
-  width: 96%;
-  height: 400px;
-}
-.report-view .table-content table {
-  width: 100%;
-}
-.report-view .table-content table thead tr {
-  background-color: grey;
-  color: white;
-}
-.report-view .table-content table thead tr th {
-  text-align: start;
-  padding-left: 10px;
-}
-.report-view .table-content table tbody tr td {
-  padding-left: 10px;
-}
-.report-view .table-content table tbody tr:hover {
+  margin-top: 10px;
+  left: calc(100% - 80px);
   cursor: pointer;
-  background-color: #4CE9B9;
-  color: white;
 }
-.report-view .table-content .Issues-table th:nth-of-type(1) {
-  width: 3%;
-  padding: 10px 0px;
+.over-lay .content-section {
+  max-width: 90%;
+  border-radius: 5px;
+  margin: auto;
+  max-height: calc(100% - 120px);
+  background-color: white;
+  margin-top: 10px;
+  overflow: auto;
 }
-.report-view .table-content .Issues-table td:nth-of-type(1) {
-  width: 30%;
+
+.filter_bar {
+  width: 98%;
+  height: 60px;
+  background-color: white;
+  margin: 10px auto auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
-.report-view .table-content .Issues-table td:nth-of-type(2) {
-  width: 20%;
+.filter_bar .report-title {
+  grid-column: 1/5;
+  align-self: center;
+  background-color: yellow;
 }
-.report-view .table-content .Issues-table td:nth-of-type(3) {
-  width: 10%;
-}
-.report-view .table-content .Issues-table td:nth-of-type(4) {
-  width: 10%;
-}
-.report-view .table-content .Issues-table td:nth-of-type(5) {
-  width: 15%;
-}
-.report-view .table-content .solutions-report-table th:nth-of-type(1) {
-  width: 2%;
-  padding: 10px 0px;
-}
-.report-view .table-content .solutions-report-table td:nth-of-type(2) {
-  width: 8%;
-  text-align: center;
-}
-.report-view .table-content .solutions-report-table td:nth-of-type(3) {
-  width: 9%;
-  text-align: center;
-}
-.report-view .table-content .solutions-report-table td:nth-of-type(4) {
-  width: 20%;
-}
-.report-view .table-content > p {
-  width: 100%;
-  padding: 20px;
+.filter_bar .report-title h4 {
+  font-weight: bolder;
   font-size: 1.4em;
-  font-weight: 500;
-  text-align: center;
+  padding-left: 10px;
 }
 
 .header-tab {

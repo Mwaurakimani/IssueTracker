@@ -86,7 +86,7 @@ Route::put('/Account/ChangePassword/{id}', function (Request  $request) {
 })->middleware(['auth']);
 
 Route::get('/home/Issues/{id}', function ($id) {
-    $issue = Issue::where('id',$id)->with('Status')->get();
+    $issue = Issue::where('id',$id)->withTrashed()->with('Status')->get();
     $messages = Message::where('issue_id',$issue[0]->id)->get();
 
 
