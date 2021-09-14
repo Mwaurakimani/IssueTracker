@@ -21,10 +21,7 @@
                 <label for="Description">Description</label>
                 <textarea name="Description" id="Description" ></textarea>
             </div>
-            <div class="form-group">
-                <label for="file">Attach File</label>
-                <input type="file" id="file" name="file">
-            </div>
+
             <hr>
             <div class="btn-group">
                 <button type="submit" value="submit">Submit</button>

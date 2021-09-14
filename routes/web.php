@@ -27,18 +27,9 @@ Route::get('/logout', function () {
     return redirect('/login');
 });
 
+require __DIR__ . '/Dashboard.php';
 
-Route::get('/Dashboard', function () {
-    $title = Auth::user()->title;
 
-    if ($title == 'Admin') {
-        return view('App.Back.dashboard');
-    } elseif ($title == 'Technician') {
-        return view('App.Back.dashboard');
-    } else {
-        return redirect('/');
-    }
-})->middleware(['auth'])->name('Dashboard');
 
 Route::get('/logout', function () {
     Auth::logout();

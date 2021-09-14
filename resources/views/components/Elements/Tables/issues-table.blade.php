@@ -1,4 +1,5 @@
-<table {{$attributes->merge(['class'=>$table])}}  class="table table-sm border table-bordered">
+
+<table class="table table-sm border table-bordered {{$table}}">
     <thead>
     <tr>
         <th scope="col">#</th>

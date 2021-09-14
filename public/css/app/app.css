@@ -95,6 +95,21 @@ body, html {
   border-radius: 5px;
 }
 
+.admin_sort {
+  grid-column: 1/4;
+  border-radius: 5px;
+  background-color: #7feeda;
+}
+.admin_sort a {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
 .Issues-section {
   width: 240px;
 }
@@ -532,6 +547,7 @@ nav .account-management-nav .account-logo .account-action > *:hover {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #d7d7d7;
+  text-overflow: ellipsis;
 }
 .dashboard-view .display_panel > .layout-2 .list-horizontal-element .list-elem > p:nth-of-type(1) {
   width: 85%;
@@ -539,6 +555,10 @@ nav .account-management-nav .account-logo .account-action > *:hover {
 }
 .dashboard-view .display_panel > .layout-2 .list-horizontal-element .list-elem > p:nth-of-type(2) {
   margin-right: 20px;
+}
+.dashboard-view .display_panel > .layout-2 .list-horizontal-element .list-elem:hover {
+  background-color: #4CE9B9;
+  color: whitesmoke;
 }
 
 .Issues-view {
@@ -1580,6 +1600,72 @@ body, html {
   border: none;
 }
 
+.table-content {
+  margin: auto;
+  width: 96%;
+  height: 400px;
+}
+.table-content table {
+  width: 100%;
+}
+.table-content table thead tr {
+  background-color: grey;
+  color: white;
+}
+.table-content table thead tr th {
+  text-align: start;
+  padding-left: 10px;
+}
+.table-content table tbody tr td {
+  padding-left: 10px;
+}
+.table-content table tbody tr:hover {
+  cursor: pointer;
+  background-color: #4CE9B9;
+  color: white;
+}
+.table-content .Issues-table th:nth-of-type(1) {
+  width: 3%;
+  padding: 10px 0px;
+}
+.table-content .Issues-table td:nth-of-type(1) {
+  width: 30%;
+}
+.table-content .Issues-table td:nth-of-type(2) {
+  width: 20%;
+}
+.table-content .Issues-table td:nth-of-type(3) {
+  width: 10%;
+}
+.table-content .Issues-table td:nth-of-type(4) {
+  width: 10%;
+}
+.table-content .Issues-table td:nth-of-type(5) {
+  width: 15%;
+}
+.table-content .solutions-report-table th:nth-of-type(1) {
+  width: 2%;
+  padding: 10px 0px;
+}
+.table-content .solutions-report-table td:nth-of-type(2) {
+  width: 8%;
+  text-align: center;
+}
+.table-content .solutions-report-table td:nth-of-type(3) {
+  width: 9%;
+  text-align: center;
+}
+.table-content .solutions-report-table td:nth-of-type(4) {
+  width: 20%;
+}
+.table-content > p {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: 500;
+  text-align: center;
+}
+
 .report_panel {
   width: 100%;
   height: 300px;
@@ -1589,9 +1675,8 @@ body, html {
 .over-lay {
   width: 100%;
   height: 100%;
-  background-color: blue;
+  background-color: rgba(91, 90, 90, 0.8);
   position: absolute;
-  display: none;
 }
 .over-lay span {
   display: block;
@@ -1608,13 +1693,52 @@ body, html {
   cursor: pointer;
 }
 .over-lay .content-section {
-  max-width: 90%;
   border-radius: 5px;
-  margin: auto;
   max-height: calc(100% - 120px);
   background-color: white;
-  margin-top: 10px;
+  margin: 10px auto auto;
+  width: 600px;
   overflow: auto;
+}
+.over-lay .content-section .filter_disp {
+  margin: auto;
+  height: 250px;
+  padding-top: 20px;
+}
+.over-lay .content-section .filter_disp .input-elem {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.over-lay .content-section .filter_disp .input-elem label {
+  width: 120px;
+  display: inline-block;
+  margin-left: 30px;
+  margin-right: 20px;
+  font-weight: bolder;
+}
+.over-lay .content-section .filter_disp .input-elem select {
+  width: calc(100% - 190px);
+  border-radius: 5px;
+  border: 1px solid grey;
+  height: 38px;
+}
+.over-lay .content-section .filter_disp .input-elem #accountSelector, .over-lay .content-section .filter_disp .input-elem #solutionsSelector {
+  display: none;
+}
+.over-lay .content-section .filter_disp .button-elem {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.over-lay .content-section .filter_disp .button-elem button {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #4CE9B9;
+  color: whitesmoke;
 }
 
 .filter_bar {
@@ -1628,12 +1752,22 @@ body, html {
 .filter_bar .report-title {
   grid-column: 1/5;
   align-self: center;
-  background-color: yellow;
 }
 .filter_bar .report-title h4 {
   font-weight: bolder;
   font-size: 1.4em;
   padding-left: 10px;
+}
+.filter_bar > button {
+  grid-column: 12/13;
+  width: 80px;
+  height: 30px;
+  background-color: #4CE9B9;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bolder;
+  align-self: center;
+  border-radius: 15px;
 }
 
 .header-tab {

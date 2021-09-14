@@ -3,13 +3,8 @@
 @section('content')
     <div class="Users-view">
         <div class="back-end-action-bar">
-            <div class="sort-component">
-                <form action="">
-                    <label for="sort_elements">Sort By :</label>
-                    <select class="form-control" name="sort_elements" id="sort_elements">
-                        <option>Date Created</option>
-                    </select>
-                </form>
+            <div class="sort-component admin_sort">
+                <a href="/register">Register</a>
             </div>
 {{--            <div class="paginator-1-component">--}}
 {{--                <p>1-11 of 200</p>--}}
@@ -56,25 +51,25 @@
                 </div>
             </div>
             <div class="dashboard-filter-view">
-                <form action="">
-                    <div class="heading-section">
-                        <h3>FILTERS</h3>
-                        <button>APPLY</button>
-                    </div>
-                    <div class="form-fields-filter">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Team Member</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
+{{--                <form action="">--}}
+{{--                    <div class="heading-section">--}}
+{{--                        <h3>FILTERS</h3>--}}
+{{--                        <button>APPLY</button>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-fields-filter">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="exampleFormControlSelect1">Team Member</label>--}}
+{{--                            <select class="form-control" id="exampleFormControlSelect1">--}}
+{{--                                <option>1</option>--}}
+{{--                                <option>2</option>--}}
+{{--                                <option>3</option>--}}
+{{--                                <option>4</option>--}}
+{{--                                <option>5</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
 
-                    </div>
-                </form>
+{{--                    </div>--}}
+{{--                </form>--}}
             </div>
         </div>
     </div>
