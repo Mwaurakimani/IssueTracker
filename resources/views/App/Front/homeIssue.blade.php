@@ -29,10 +29,12 @@
                 @if(isset($messages))
                     @foreach($messages as $message)
                         @if($message->User->title == 'Client')
+
                             <x-Cards.user-message-card :issue="$issue" :message="$message">
 
                             </x-Cards.user-message-card>
                         @else
+{{--                {{dd($message->User->title)}}--}}
                             <x-Cards.admin-message-card :issue="$issue" :message="$message">
 
                             </x-Cards.admin-message-card>

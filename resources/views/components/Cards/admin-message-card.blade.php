@@ -1,6 +1,6 @@
 <div class="msg-card ">
     <div class="user-details">
-        <div class="tag-elem user-tag">
+        <div class="tag-elem admin-tag">
             {{ $message->User->name[0] }}
         </div>
         <div class="det-holder">

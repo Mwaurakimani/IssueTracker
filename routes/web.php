@@ -66,23 +66,6 @@ Route::post('/Issues/sendMessage', function (Request $request) {
     );
 });
 
-Route::post('/Issues/sendMessage', function (Request $request) {
-    $message_data = $request->message_entry;
-    $issue_id = $request->issue_id;
-
-    $message = new Message();
-    $message->issue_id = $issue_id;
-    $message->user_id = Auth::user()->id;
-    $message->message = $message_data;
-
-    $message->save();
-
-    return array(
-        'name' => Auth::user()->name,
-        'request' => $request->message_entry
-    );
-})->middleware(['auth']);;
-
 //test
 
 Route::get('/Issue/Delete/{id}', function ($id) {
