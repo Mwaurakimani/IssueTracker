@@ -18,7 +18,11 @@
             $voteStat = null;
             if(Auth::check()){
                 $vote = \Illuminate\Support\Facades\Auth::user()->vote;
+
+                if(isset($votes) && count($vote) > 0){
+
                 $voteStat = $vote[0]->vote;
+                }
             }
 
     }
@@ -59,7 +63,7 @@
                      id="description">{!! isset($solution->Description)? $solution->Description : '' !!}</div>
             </div>
             @if($votes_isset)
-                <p>Hellow</p>
+                <p>Voting</p>
                 <div class="voting-section">
                     <div id="upVote"
                          class="display-section " {{Auth::check() ? 'onclick=toggle_vote(1)' : 'onclick=Alert_log_in()'}}>
@@ -155,15 +159,15 @@
             if (opacity == 1) {
                 elem.fadeOut('fast');
             } else {
-                elem.fadeIn(200,()=>{
+                elem.fadeIn(200, () => {
                     elem.animate(
-                        {opacity:'1'},
+                        {opacity: '1'},
                         {duration: 200}
                     );
                 });
             }
 
-            if(data != null){
+            if (data != null) {
                 commenter = data;
             }
         }
@@ -189,8 +193,8 @@
                             },
                             dataType: 'json',
                             success: function (data) {
-                                if(comment != null && commenter != "undefined"){
-                                    alert(commenter+" successfully")
+                                if (comment != null && commenter != "undefined") {
+                                    alert(commenter + " successfully")
                                 }
                             },
                             error: function (data) {
@@ -202,9 +206,9 @@
                         console.log("Cancelled");
                         break;
                 }
-            }catch (err){
+            } catch (err) {
                 console.log(err);
-            }finally {
+            } finally {
                 toggle_modal();
                 window.location.reload();
             }

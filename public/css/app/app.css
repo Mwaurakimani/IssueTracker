@@ -888,6 +888,7 @@ body, html {
   margin-bottom: 10px;
 }
 .admin-panel .back-content-body .solution_form .solution_details {
+  display: none;
   width: 30%;
   height: 300px;
   background-color: #4CE9B9;

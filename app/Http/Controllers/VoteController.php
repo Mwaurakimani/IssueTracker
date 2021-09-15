@@ -24,14 +24,16 @@ class VoteController extends Controller
                 ->where('user_id',  Auth::user()->id)
                 ->get();
 
-            $vote = $vote[0];
+            if(count($vote) > 0){
+                $vote = $vote[0];
 
-            $vote->vote = $cast_vote;
-            $vote->save();
+                $vote->vote = $cast_vote;
+                $vote->save();
 
-            return array(
-                'data' => 2
-            );
+                return array(
+                    'data' => 2
+                );
+            }
         }
 
         $vote = new Vote();

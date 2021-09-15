@@ -17,7 +17,13 @@ use App\Models\User;
         @php
         $vote_id = $comment->vote_id;
 
-        $vote = \App\Models\Vote::find($vote_id)->vote;
+        $vote = \App\Models\Vote::find($vote_id);
+
+        $vote_count = (array) $vote;
+
+        if(count($vote_count) > 1){
+            $vote = $vote->vote;
+        }
         @endphp
 
         @if($vote == 1)
